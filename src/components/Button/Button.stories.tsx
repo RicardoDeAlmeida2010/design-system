@@ -27,8 +27,6 @@ import { Button } from './Button';
 
 - **Primary**: Botão principal para ações importantes
 - **Secondary**: Botão secundário para ações menos críticas
-- **Success**: Para ações positivas ou de confirmação
-- **Warning**: Para ações que requerem atenção
 - **Error**: Para ações destrutivas ou de erro
 - **Ghost**: Botão transparente para ações sutis
 
@@ -52,7 +50,7 @@ import { Button } from './Button';
   argTypes: {
     variant: {
       control: { type: 'select' },
-      options: ['primary', 'secondary', 'success', 'warning', 'error', 'ghost'],
+      options: ['primary', 'secondary', 'error', 'ghost'],
       description: 'Variante visual do botão',
     },
     size: {
@@ -98,8 +96,6 @@ export const Variants: Story = {
     <div style={{ display: 'flex', gap: '1rem', flexWrap: 'wrap' }}>
       <Button variant="primary">Primary</Button>
       <Button variant="secondary">Secondary</Button>
-      <Button variant="success">Success</Button>
-      <Button variant="warning">Warning</Button>
       <Button variant="error">Error</Button>
       <Button variant="ghost">Ghost</Button>
     </div>
@@ -149,10 +145,6 @@ export const WithIcon: Story = {
         <span style={{ marginRight: '0.5rem' }}>←</span>
         Previous
       </Button>
-      <Button variant="success">
-        <span style={{ marginRight: '0.5rem' }}>✓</span>
-        Save
-      </Button>
     </div>
   ),
 };
@@ -180,4 +172,4 @@ export const FormExample: Story = {
       </Button>
     </div>
   ),
-}; 
+};

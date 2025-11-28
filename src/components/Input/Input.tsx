@@ -1,240 +1,87 @@
-import React, { forwardRef, useState } from 'react';
-import { getColor, getSpacing, getFontSize, getBorderRadius, getShadow } from '../../utils/tokens';
+import React, { forwardRef } from 'react';
+import './Input.css';
 
-export interface InputProps extends React.InputHTMLAttributes<HTMLInputElement> {
-  variant?: 'default' | 'outlined' | 'filled';
-  size?: 'small' | 'medium' | 'large';
-  error?: boolean;
-  success?: boolean;
-  disabled?: boolean;
-  fullWidth?: boolean;
+export interface InputProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'size'> {
   label?: string;
   helperText?: string;
+  error?: boolean;
   startIcon?: React.ReactNode;
   endIcon?: React.ReactNode;
-  required?: boolean;
+  fullWidth?: boolean;
+  size?: 'sm' | 'md' | 'lg';
 }
 
-const Input = forwardRef<HTMLInputElement, InputProps>(
+export const Input = forwardRef<HTMLInputElement, InputProps>(
   (
     {
-      variant = 'default',
-      size = 'medium',
-      error = false,
-      success = false,
-      disabled = false,
-      fullWidth = false,
       label,
       helperText,
+      error = false,
       startIcon,
       endIcon,
-      required = false,
-      className,
-      style,
-      onFocus,
-      onBlur,
+      fullWidth = false,
+      size = 'md',
+      className = '',
+      disabled,
+      required,
+      id,
       ...props
     },
     ref
   ) => {
-    const [isFocused, setIsFocused] = useState(false);
+    const inputId = id || `input-${Math.random().toString(36).substr(2, 9)}`;
 
-    const getVariantStyles = () => {
-      const baseBorder = error 
-        ? getColor('error') 
-        : success 
-        ? getColor('success') 
-        : isFocused 
-        ? getColor('primary') 
-        : getColor('border', 'primary');
-
-      switch (variant) {
-        case 'outlined':
-          return {
-            border: `1px solid ${baseBorder}`,
-            backgroundColor: 'transparent',
-            boxShadow: isFocused ? `0 0 0 3px ${getColor('primary')}20` : 'none',
-          };
-        case 'filled':
-          return {
-            border: 'none',
-            backgroundColor: getColor('background', 'secondary'),
-            borderBottom: `2px solid ${baseBorder}`,
-            boxShadow: isFocused ? `0 0 0 3px ${getColor('primary')}20` : 'none',
-          };
-        default:
-          return {
-            border: `1px solid ${baseBorder}`,
-            backgroundColor: getColor('background', 'primary'),
-            boxShadow: isFocused ? `0 0 0 3px ${getColor('primary')}20` : 'none',
-          };
-      }
-    };
-
-    const getSizeStyles = () => {
-      switch (size) {
-        case 'small':
-          return {
-            padding: `${getSpacing(1)} ${getSpacing(2)}`,
-            fontSize: getFontSize('sm'),
-            height: '32px',
-            minHeight: '32px',
-          };
-        case 'large':
-          return {
-            padding: `${getSpacing(3)} ${getSpacing(4)}`,
-            fontSize: getFontSize('lg'),
-            height: '48px',
-            minHeight: '48px',
-          };
-        default:
-          return {
-            padding: `${getSpacing(2)} ${getSpacing(3)}`,
-            fontSize: getFontSize('base'),
-            height: '40px',
-            minHeight: '40px',
-          };
-      }
-    };
-
-    const inputStyles: React.CSSProperties = {
-      width: fullWidth ? '100%' : 'auto',
-      borderRadius: getBorderRadius('md'),
-      color: getColor('text', 'primary'),
-      outline: 'none',
-      transition: 'all 0.2s ease',
-      boxSizing: 'border-box',
-      fontFamily: 'inherit',
-      ...getVariantStyles(),
-      ...getSizeStyles(),
-      ...style,
-    };
-
-    const containerStyles: React.CSSProperties = {
-      display: 'flex',
-      flexDirection: 'column',
-      width: fullWidth ? '100%' : 'auto',
-    };
-
-    const inputContainerStyles: React.CSSProperties = {
-      position: 'relative',
-      display: 'flex',
-      alignItems: 'center',
-    };
-
-    const iconStyles: React.CSSProperties = {
-      position: 'absolute',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-      color: getColor('text', 'secondary'),
-      zIndex: 1,
-      pointerEvents: 'none',
-    };
-
-    const startIconStyles: React.CSSProperties = {
-      ...iconStyles,
-      left: getSpacing(2),
-    };
-
-    const endIconStyles: React.CSSProperties = {
-      ...iconStyles,
-      right: getSpacing(2),
-    };
-
-    const labelStyles: React.CSSProperties = {
-      fontSize: getFontSize('sm'),
-      fontWeight: 500,
-      color: getColor('text', 'primary'),
-      marginBottom: getSpacing(1),
-      display: 'flex',
-      alignItems: 'center',
-      gap: getSpacing(1),
-    };
-
-    const requiredStyles: React.CSSProperties = {
-      color: getColor('error'),
-      fontSize: getFontSize('sm'),
-    };
-
-    const helperTextStyles: React.CSSProperties = {
-      fontSize: getFontSize('sm'),
-      color: error ? getColor('error') : getColor('text', 'secondary'),
-      marginTop: getSpacing(1),
-      display: 'flex',
-      alignItems: 'center',
-      gap: getSpacing(1),
-    };
-
-    // Add padding for icons
-    if (startIcon) {
-      inputStyles.paddingLeft = `calc(${getSpacing(3)} + 24px)`;
-    }
-    if (endIcon) {
-      inputStyles.paddingRight = `calc(${getSpacing(3)} + 24px)`;
-    }
-
-    // Disabled state
-    if (disabled) {
-      inputStyles.opacity = 0.6;
-      inputStyles.cursor = 'not-allowed';
-      inputStyles.backgroundColor = getColor('background', 'secondary');
-    }
-
-    const handleFocus = (e: React.FocusEvent<HTMLInputElement>) => {
-      setIsFocused(true);
-      onFocus?.(e);
-    };
-
-    const handleBlur = (e: React.FocusEvent<HTMLInputElement>) => {
-      setIsFocused(false);
-      onBlur?.(e);
-    };
+    const containerClass = [
+      'design-system-input__container',
+      `design-system-input__container--${size}`,
+      error ? 'design-system-input__container--error' : '',
+      disabled ? 'design-system-input__container--disabled' : '',
+    ].filter(Boolean).join(' ');
 
     return (
-      <div style={containerStyles} className={className}>
+      <div className={`design-system-input ${fullWidth ? 'design-system-input--full-width' : ''} ${className}`}>
         {label && (
-          <label style={labelStyles}>
+          <label htmlFor={inputId} className="design-system-input__label">
             {label}
-            {required && <span style={requiredStyles}>*</span>}
+            {required && <span className="design-system-input__required">*</span>}
           </label>
         )}
-        <div style={inputContainerStyles}>
+
+        <div className={containerClass}>
           {startIcon && (
-            <div style={startIconStyles}>
+            <div className="design-system-input__icon design-system-input__icon--start">
               {startIcon}
             </div>
           )}
+
           <input
             ref={ref}
-            style={inputStyles}
+            id={inputId}
+            className="design-system-input__field"
             disabled={disabled}
-            onFocus={handleFocus}
-            onBlur={handleBlur}
+            required={required}
+            aria-invalid={error}
             {...props}
           />
+
           {endIcon && (
-            <div style={endIconStyles}>
+            <div className="design-system-input__icon design-system-input__icon--end">
               {endIcon}
             </div>
           )}
         </div>
+
         {helperText && (
-          <span style={helperTextStyles}>
+          <div className={`design-system-input__helper ${error ? 'design-system-input__helper--error' : ''}`}>
             {error && (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="10" fill={getColor('error')} />
-                <path d="M12 8v4M12 16h.01" stroke="white" strokeWidth="2" strokeLinecap="round" />
-              </svg>
-            )}
-            {success && (
-              <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
-                <circle cx="12" cy="12" r="10" fill={getColor('success')} />
-                <path d="M9 12l2 2 4-4" stroke="white" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" />
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                <circle cx="12" cy="12" r="10" />
+                <line x1="12" y1="8" x2="12" y2="12" />
+                <line x1="12" y1="16" x2="12.01" y2="16" />
               </svg>
             )}
             {helperText}
-          </span>
+          </div>
         )}
       </div>
     );
@@ -243,4 +90,4 @@ const Input = forwardRef<HTMLInputElement, InputProps>(
 
 Input.displayName = 'Input';
 
-export default Input; 
+export default Input;

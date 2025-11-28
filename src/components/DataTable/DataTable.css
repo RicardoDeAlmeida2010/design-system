@@ -1,0 +1,102 @@
+.design-system-datatable {
+    width: 100%;
+    border: 1px solid var(--sys-color-border-secondary, #e2e8f0);
+    border-radius: 8px;
+    background-color: var(--sys-color-bg-surface);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.design-system-datatable__container {
+    overflow-x: auto;
+    width: 100%;
+}
+
+.design-system-datatable__table {
+    width: 100%;
+    border-collapse: collapse;
+    text-align: left;
+    font-family: var(--sys-font-family);
+}
+
+/* Header */
+.design-system-datatable__header-cell {
+    background-color: var(--sys-color-bg-surface);
+    color: var(--sys-color-content-secondary);
+    font-weight: 600;
+    font-size: var(--sys-type-caption-size);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    padding: var(--sys-spacing-200);
+    border-bottom: 1px solid var(--sys-color-border-secondary, #e2e8f0);
+    user-select: none;
+}
+
+.design-system-datatable--sticky .design-system-datatable__header-cell {
+    position: sticky;
+    top: 0;
+    z-index: 10;
+}
+
+.design-system-datatable__header-cell--sortable {
+    cursor: pointer;
+}
+
+.design-system-datatable__header-cell--sortable:hover {
+    background-color: var(--sys-color-bg-page);
+    color: var(--sys-color-content-primary);
+}
+
+.design-system-datatable__header-content {
+    display: flex;
+    align-items: center;
+    gap: var(--sys-spacing-100);
+}
+
+/* Rows & Cells */
+.design-system-datatable__row {
+    background-color: var(--sys-color-bg-page);
+    border-bottom: 1px solid var(--sys-color-border-secondary, #e2e8f0);
+    transition: background-color var(--sys-motion-duration-fast) var(--sys-motion-easing-standard);
+}
+
+.design-system-datatable__row:last-child {
+    border-bottom: none;
+}
+
+.design-system-datatable__row:hover {
+    background-color: var(--sys-color-bg-surface);
+}
+
+.design-system-datatable__row--selected {
+    background-color: rgba(0, 102, 204, 0.05);
+    /* Brand color light */
+}
+
+.design-system-datatable__cell {
+    padding: var(--sys-spacing-200);
+    color: var(--sys-color-content-primary);
+    font-size: var(--sys-type-body-medium-size);
+}
+
+/* Density */
+.design-system-datatable--compact .design-system-datatable__cell,
+.design-system-datatable--compact .design-system-datatable__header-cell {
+    padding: var(--sys-spacing-100);
+    font-size: var(--sys-type-caption-size);
+}
+
+.design-system-datatable--comfortable .design-system-datatable__cell,
+.design-system-datatable--comfortable .design-system-datatable__header-cell {
+    padding: var(--sys-spacing-400) var(--sys-spacing-200);
+}
+
+/* Footer */
+.design-system-datatable__footer {
+    padding: var(--sys-spacing-200);
+    border-top: 1px solid var(--sys-color-border-secondary, #e2e8f0);
+    background-color: var(--sys-color-bg-surface);
+    font-size: var(--sys-type-caption-size);
+    color: var(--sys-color-content-secondary);
+}

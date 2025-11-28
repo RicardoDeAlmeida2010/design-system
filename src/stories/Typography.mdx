@@ -1,0 +1,57 @@
+import { Meta, Typeset } from '@storybook/blocks';
+
+<Meta title="Design System/Typography" />
+
+# Tipografia (Enterprise 3.0)
+
+Escala tipográfica fluida utilizando **Inter** (Web/Android) e **SF Pro** (iOS).
+
+**Font Family:** `Inter, system-ui, sans-serif`
+
+## Display & Headings
+<Typeset
+  fontSizes={[
+    Number('48'),
+    Number('32'),
+  ]}
+  fontWeight={700}
+  sampleText="Banking Enterprise 3.0"
+  fontFamily="Inter, system-ui, sans-serif"
+/>
+
+| Token | Size | Line Height | Weight |
+| :--- | :--- | :--- | :--- |
+| `sys.type.display.large` | 48px | 120% | Bold (700) |
+| `sys.type.heading.medium` | 32px | 130% | SemiBold (600) |
+
+## Body
+<Typeset
+  fontSizes={[
+    Number('18'),
+    Number('16'),
+    Number('14'),
+  ]}
+  fontWeight={400}
+  sampleText="The quick brown fox jumps over the lazy dog."
+  fontFamily="Inter, system-ui, sans-serif"
+/>
+
+| Token | Size | Line Height | Weight |
+| :--- | :--- | :--- | :--- |
+| `sys.type.body.large` | 18px | 150% | Regular (400) |
+| `sys.type.body.medium` | 16px | 150% | Regular (400) |
+| `sys.type.body.small` | 14px | 150% | Regular (400) |
+
+## Caption
+<Typeset
+  fontSizes={[
+    Number('12'),
+  ]}
+  fontWeight={500}
+  sampleText="Legal disclaimer text goes here."
+  fontFamily="Inter, system-ui, sans-serif"
+/>
+
+| Token | Size | Line Height | Weight |
+| :--- | :--- | :--- | :--- |
+| `sys.type.caption` | 12px | 150% | Medium (500) |

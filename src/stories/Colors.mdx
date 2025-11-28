@@ -1,0 +1,103 @@
+import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
+
+<Meta title="Design System/Colors" />
+
+# Cores do Sistema (Enterprise 3.0)
+
+Esta paleta define as cores semânticas utilizadas no sistema. Elas se adaptam automaticamente ao modo claro e escuro.
+
+## Cores de Fundo (Background)
+<ColorPalette>
+  <ColorItem
+    title="Page"
+    subtitle="Fundo principal da página"
+    colors={{ Light: '#FFFFFF', Dark: '#000000' }}
+  />
+  <ColorItem
+    title="Surface"
+    subtitle="Cards e containers"
+    colors={{ Light: '#F3F4F6', Dark: '#1C1C1E' }}
+  />
+  <ColorItem
+    title="Surface Variant"
+    subtitle="Elementos secundários"
+    colors={{ Light: '#E5E7EB', Dark: '#2C2C2E' }}
+  />
+</ColorPalette>
+
+## Conteúdo (Texto e Ícones)
+<ColorPalette>
+  <ColorItem
+    title="Primary"
+    subtitle="Texto principal"
+    colors={{ Light: '#111827', Dark: '#FFFFFF' }}
+  />
+  <ColorItem
+    title="Secondary"
+    subtitle="Texto de apoio"
+    colors={{ Light: '#6B7280', Dark: '#8E8E93' }}
+  />
+  <ColorItem
+    title="Tertiary"
+    subtitle="Placeholders e desabilitados"
+    colors={{ Light: '#9CA3AF', Dark: '#636366' }}
+  />
+</ColorPalette>
+
+## Ações (Brand)
+<ColorPalette>
+  <ColorItem
+    title="Brand"
+    subtitle="Cor primária da marca"
+    colors={{ Light: '#0052CC', Dark: '#0A84FF' }}
+  />
+  <ColorItem
+    title="Brand Hover"
+    subtitle="Estado de hover"
+    colors={{ Light: '#0043A6', Dark: '#0066CC' }}
+  />
+</ColorPalette>
+
+## Status
+<ColorPalette>
+  <ColorItem
+    title="Success"
+    subtitle="Sucesso e confirmação"
+    colors={{ Light: '#059669', Dark: '#30D158' }}
+  />
+  <ColorItem
+    title="Error"
+    subtitle="Erros e alertas críticos"
+    colors={{ Light: '#DC2626', Dark: '#FF453A' }}
+  />
+  <ColorItem
+    title="Warning"
+    subtitle="Avisos e atenção"
+    colors={{ Light: '#D97706', Dark: '#FFD60A' }}
+  />
+  <ColorItem
+    title="Info"
+    subtitle="Informações gerais"
+    colors={{ Light: '#2563EB', Dark: '#64D2FF' }}
+  />
+</ColorPalette>
+
+## Câmbio (FX)
+Cores específicas para o domínio financeiro de câmbio.
+<ColorPalette>
+  <ColorItem
+    title="FX Up"
+    subtitle="Valorização (Alta)"
+    colors={{ Light: '#16A34A', Dark: '#30D158' }}
+  />
+  <ColorItem
+    title="FX Down"
+    subtitle="Desvalorização (Baixa)"
+    colors={{ Light: '#DC2626', Dark: '#FF453A' }}
+  />
+  <ColorItem
+    title="FX Neutral"
+    subtitle="Estabilidade"
+    colors={{ Light: '#6B7280', Dark: '#8E8E93' }}
+  />
+</ColorPalette>

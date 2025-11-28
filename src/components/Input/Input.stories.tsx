@@ -14,23 +14,14 @@ const meta: Meta<typeof Input> = {
     },
   },
   argTypes: {
-    variant: {
-      control: { type: 'select' },
-      options: ['default', 'outlined', 'filled'],
-      description: 'Variante visual do input',
-    },
     size: {
       control: { type: 'select' },
-      options: ['small', 'medium', 'large'],
+      options: ['sm', 'md', 'lg'],
       description: 'Tamanho do input',
     },
     error: {
       control: { type: 'boolean' },
       description: 'Estado de erro',
-    },
-    success: {
-      control: { type: 'boolean' },
-      description: 'Estado de sucesso',
     },
     disabled: {
       control: { type: 'boolean' },
@@ -102,15 +93,6 @@ export const Error: Story = {
   },
 };
 
-export const Success: Story = {
-  args: {
-    label: 'Email',
-    placeholder: 'Digite seu email',
-    success: true,
-    helperText: 'Email válido!',
-  },
-};
-
 export const Disabled: Story = {
   args: {
     label: 'Campo desabilitado',
@@ -121,7 +103,7 @@ export const Disabled: Story = {
 
 export const Small: Story = {
   args: {
-    size: 'small',
+    size: 'sm',
     label: 'Input pequeno',
     placeholder: 'Digite algo...',
   },
@@ -129,24 +111,8 @@ export const Small: Story = {
 
 export const Large: Story = {
   args: {
-    size: 'large',
+    size: 'lg',
     label: 'Input grande',
-    placeholder: 'Digite algo...',
-  },
-};
-
-export const Outlined: Story = {
-  args: {
-    variant: 'outlined',
-    label: 'Input outlined',
-    placeholder: 'Digite algo...',
-  },
-};
-
-export const Filled: Story = {
-  args: {
-    variant: 'filled',
-    label: 'Input filled',
     placeholder: 'Digite algo...',
   },
 };
@@ -159,22 +125,12 @@ export const FullWidth: Story = {
   },
 };
 
-export const AllVariants: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '300px' }}>
-      <Input variant="default" label="Default" placeholder="Digite algo..." />
-      <Input variant="outlined" label="Outlined" placeholder="Digite algo..." />
-      <Input variant="filled" label="Filled" placeholder="Digite algo..." />
-    </div>
-  ),
-};
-
 export const AllSizes: Story = {
   render: () => (
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '300px' }}>
-      <Input size="small" label="Small" placeholder="Digite algo..." />
-      <Input size="medium" label="Medium" placeholder="Digite algo..." />
-      <Input size="large" label="Large" placeholder="Digite algo..." />
+      <Input size="sm" label="Small" placeholder="Digite algo..." />
+      <Input size="md" label="Medium" placeholder="Digite algo..." />
+      <Input size="lg" label="Large" placeholder="Digite algo..." />
     </div>
   ),
 };
@@ -184,55 +140,7 @@ export const AllStates: Story = {
     <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '300px' }}>
       <Input label="Normal" placeholder="Digite algo..." />
       <Input label="Erro" placeholder="Digite algo..." error helperText="Campo obrigatório" />
-      <Input label="Sucesso" placeholder="Digite algo..." success helperText="Campo válido!" />
       <Input label="Desabilitado" placeholder="Digite algo..." disabled />
-    </div>
-  ),
-};
-
-export const WithIcons: Story = {
-  render: () => (
-    <div style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '300px' }}>
-      <Input
-        label="Email"
-        placeholder="Digite seu email"
-        startIcon={
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-            <polyline points="22,6 12,13 2,6" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"/>
-          </svg>
-        }
-      />
-      
-      <Input
-        label="Senha"
-        type="password"
-        placeholder="Digite sua senha"
-        startIcon={
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <rect x="3" y="11" width="18" height="11" rx="2" ry="2" stroke="currentColor" strokeWidth="2"/>
-            <circle cx="12" cy="16" r="1" fill="currentColor"/>
-            <path d="M7 11V7a5 5 0 0 1 10 0v4" stroke="currentColor" strokeWidth="2"/>
-          </svg>
-        }
-        endIcon={
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z" stroke="currentColor" strokeWidth="2"/>
-            <circle cx="12" cy="12" r="3" stroke="currentColor" strokeWidth="2"/>
-          </svg>
-        }
-      />
-      
-      <Input
-        label="Buscar"
-        placeholder="Digite para buscar..."
-        startIcon={
-          <svg width="20" height="20" viewBox="0 0 24 24" fill="none">
-            <circle cx="11" cy="11" r="8" stroke="currentColor" strokeWidth="2"/>
-            <path d="m21 21-4.35-4.35" stroke="currentColor" strokeWidth="2"/>
-          </svg>
-        }
-      />
     </div>
   ),
 };
@@ -255,7 +163,7 @@ export const FormExample: Story = {
 
     const handleChange = (field: string, value: string) => {
       setFormData(prev => ({ ...prev, [field]: value }));
-      
+
       // Clear error when user starts typing
       if (errors[field as keyof typeof errors]) {
         setErrors(prev => ({ ...prev, [field]: '' }));
@@ -273,10 +181,10 @@ export const FormExample: Story = {
       if (!formData.name) newErrors.name = 'Nome é obrigatório';
       if (!formData.email) newErrors.email = 'Email é obrigatório';
       else if (!/\S+@\S+\.\S+/.test(formData.email)) newErrors.email = 'Email inválido';
-      
+
       if (!formData.password) newErrors.password = 'Senha é obrigatória';
       else if (formData.password.length < 6) newErrors.password = 'Senha deve ter pelo menos 6 caracteres';
-      
+
       if (formData.password !== formData.confirmPassword) {
         newErrors.confirmPassword = 'Senhas não coincidem';
       }
@@ -295,7 +203,7 @@ export const FormExample: Story = {
     return (
       <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: '16px', width: '400px' }}>
         <h3 style={{ margin: 0, fontSize: '20px', fontWeight: 600 }}>Formulário de Cadastro</h3>
-        
+
         <Input
           label="Nome completo"
           placeholder="Digite seu nome completo"
@@ -305,7 +213,7 @@ export const FormExample: Story = {
           helperText={errors.name}
           required
         />
-        
+
         <Input
           label="Email"
           type="email"
@@ -316,7 +224,7 @@ export const FormExample: Story = {
           helperText={errors.email}
           required
         />
-        
+
         <Input
           label="Senha"
           type="password"
@@ -327,7 +235,7 @@ export const FormExample: Story = {
           helperText={errors.password}
           required
         />
-        
+
         <Input
           label="Confirmar senha"
           type="password"
@@ -338,7 +246,7 @@ export const FormExample: Story = {
           helperText={errors.confirmPassword}
           required
         />
-        
+
         <button
           type="submit"
           style={{
@@ -365,10 +273,8 @@ export const FormExample: Story = {
 export const InteractiveDemo: Story = {
   render: () => {
     const [value, setValue] = React.useState('');
-    const [variant, setVariant] = React.useState<'default' | 'outlined' | 'filled'>('default');
-    const [size, setSize] = React.useState<'small' | 'medium' | 'large'>('medium');
+    const [size, setSize] = React.useState<'sm' | 'md' | 'lg'>('md');
     const [error, setError] = React.useState(false);
-    const [success, setSuccess] = React.useState(false);
     const [disabled, setDisabled] = React.useState(false);
 
     return (
@@ -376,42 +282,21 @@ export const InteractiveDemo: Story = {
         <div>
           <h3 style={{ margin: '0 0 16px 0', fontSize: '18px', fontWeight: 600 }}>Controles</h3>
           <div style={{ display: 'flex', flexWrap: 'wrap', gap: '12px' }}>
-            <select value={variant} onChange={(e) => setVariant(e.target.value as any)}>
-              <option value="default">Default</option>
-              <option value="outlined">Outlined</option>
-              <option value="filled">Filled</option>
-            </select>
-            
             <select value={size} onChange={(e) => setSize(e.target.value as any)}>
-              <option value="small">Small</option>
-              <option value="medium">Medium</option>
-              <option value="large">Large</option>
+              <option value="sm">Small</option>
+              <option value="md">Medium</option>
+              <option value="lg">Large</option>
             </select>
-            
+
             <label>
               <input
                 type="checkbox"
                 checked={error}
-                onChange={(e) => {
-                  setError(e.target.checked);
-                  if (e.target.checked) setSuccess(false);
-                }}
+                onChange={(e) => setError(e.target.checked)}
               />
               Error
             </label>
-            
-            <label>
-              <input
-                type="checkbox"
-                checked={success}
-                onChange={(e) => {
-                  setSuccess(e.target.checked);
-                  if (e.target.checked) setError(false);
-                }}
-              />
-              Success
-            </label>
-            
+
             <label>
               <input
                 type="checkbox"
@@ -428,22 +313,19 @@ export const InteractiveDemo: Story = {
           placeholder="Digite algo para testar..."
           value={value}
           onChange={(e) => setValue(e.target.value)}
-          variant={variant}
           size={size}
           error={error}
-          success={success}
           disabled={disabled}
           helperText={
             error ? 'Este é um erro' :
-            success ? 'Este é um sucesso' :
-            value ? `Você digitou: "${value}"` :
-            'Digite algo para ver a mudança'
+              value ? `Você digitou: "${value}"` :
+                'Digite algo para ver a mudança'
           }
         />
 
-        <div style={{ 
-          padding: '12px', 
-          backgroundColor: '#f8fafc', 
+        <div style={{
+          padding: '12px',
+          backgroundColor: '#f8fafc',
           borderRadius: '8px',
           fontSize: '14px',
           color: '#64748b'
@@ -453,4 +335,4 @@ export const InteractiveDemo: Story = {
       </div>
     );
   },
-}; 
+};

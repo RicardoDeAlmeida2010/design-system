@@ -1,0 +1,115 @@
+.design-system-dashboard {
+    display: flex;
+    flex-direction: column;
+    gap: var(--sys-spacing-400);
+    padding: var(--sys-spacing-400);
+    background-color: var(--sys-color-bg-page);
+    min-height: 100vh;
+    font-family: var(--sys-font-family);
+    box-sizing: border-box;
+}
+
+/* Header Section */
+.design-system-dashboard__header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.design-system-dashboard__title {
+    font-size: var(--sys-type-heading-medium-size);
+    font-weight: 600;
+    color: var(--sys-color-content-primary);
+    margin: 0;
+}
+
+.design-system-dashboard__user {
+    display: flex;
+    align-items: center;
+    gap: var(--sys-spacing-200);
+}
+
+.design-system-dashboard__avatar {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: var(--sys-color-action-brand);
+    color: #fff;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+}
+
+/* Balance Section */
+.design-system-dashboard__balance-card {
+    background-color: var(--sys-color-action-brand);
+    color: #FFFFFF;
+    padding: var(--sys-spacing-400);
+    border-radius: var(--sys-radius-lg);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sys-spacing-200);
+    box-shadow: var(--sys-shadow-md);
+}
+
+.design-system-dashboard__balance-label {
+    font-size: var(--sys-type-body-small-size);
+    opacity: 0.9;
+}
+
+.design-system-dashboard__balance-value {
+    font-size: var(--sys-type-display-large-size);
+    font-weight: 700;
+}
+
+.design-system-dashboard__actions {
+    display: flex;
+    gap: var(--sys-spacing-200);
+    margin-top: var(--sys-spacing-200);
+}
+
+/* Grid Layout */
+.design-system-dashboard__grid {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: var(--sys-spacing-400);
+}
+
+@media (max-width: 1024px) {
+    .design-system-dashboard__grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+/* Section Titles */
+.design-system-dashboard__section-title {
+    font-size: var(--sys-type-body-large-size);
+    font-weight: 600;
+    color: var(--sys-color-content-primary);
+    margin-bottom: var(--sys-spacing-200);
+}
+
+/* Market Rates Grid */
+.design-system-dashboard__rates-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: var(--sys-spacing-200);
+}
+
+/* Conversion Widget */
+.design-system-dashboard__conversion {
+    background-color: var(--sys-color-bg-surface);
+    padding: var(--sys-spacing-300);
+    border-radius: var(--sys-radius-lg);
+    border: 1px solid var(--sys-color-border-default);
+    display: flex;
+    flex-direction: column;
+    gap: var(--sys-spacing-300);
+}
+
+.design-system-dashboard__conversion-arrow {
+    align-self: center;
+    color: var(--sys-color-content-tertiary);
+    font-size: 24px;
+}

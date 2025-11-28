@@ -3,65 +3,95 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: inherit;
+  font-family: var(--sys-font-family);
   text-decoration: none;
   outline: none;
   user-select: none;
   white-space: nowrap;
   overflow: hidden;
+  border-radius: 8px;
+  /* Using a fixed value or could be var(--sys-spacing-100) if mapped */
+  border: 1px solid transparent;
+  cursor: pointer;
+  transition: all var(--sys-motion-duration-fast) var(--sys-motion-easing-standard);
+  font-weight: 500;
 }
 
-/* Estados de hover */
+/* Sizes */
+.design-system-button--sm {
+  padding: 4px 12px;
+  font-size: var(--sys-type-caption-size);
+  min-height: 32px;
+}
+
+.design-system-button--md {
+  padding: 8px 16px;
+  font-size: var(--sys-type-body-medium-size);
+  min-height: 40px;
+}
+
+.design-system-button--lg {
+  padding: 12px 24px;
+  font-size: var(--sys-type-body-large-size);
+  min-height: 48px;
+}
+
+/* Variants */
+.design-system-button--primary {
+  background-color: var(--sys-color-action-brand);
+  color: #FFFFFF;
+  /* Always white on brand color */
+}
+
 .design-system-button--primary:hover:not(.design-system-button--disabled) {
-  background-color: #2563eb !important;
+  filter: brightness(1.1);
   transform: translateY(-1px);
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
 }
 
-.design-system-button--secondary:hover:not(.design-system-button--disabled) {
-  background-color: #e2e8f0 !important;
-  border-color: #cbd5e1 !important;
-}
-
-.design-system-button--success:hover:not(.design-system-button--disabled) {
-  background-color: #16a34a !important;
-}
-
-.design-system-button--warning:hover:not(.design-system-button--disabled) {
-  background-color: #d97706 !important;
-}
-
-.design-system-button--error:hover:not(.design-system-button--disabled) {
-  background-color: #dc2626 !important;
-}
-
-.design-system-button--ghost:hover:not(.design-system-button--disabled) {
-  background-color: #f1f5f9 !important;
-  border-color: #3b82f6 !important;
-}
-
-/* Estados de active */
 .design-system-button--primary:active:not(.design-system-button--disabled) {
-  background-color: #1d4ed8 !important;
+  filter: brightness(0.9);
   transform: translateY(0);
 }
 
-.design-system-button--secondary:active:not(.design-system-button--disabled) {
-  background-color: #cbd5e1 !important;
+.design-system-button--secondary {
+  background-color: var(--sys-color-bg-surface);
+  color: var(--sys-color-content-primary);
+  border-color: var(--sys-color-content-secondary);
 }
 
-/* Estados especiais */
+.design-system-button--secondary:hover:not(.design-system-button--disabled) {
+  background-color: var(--sys-color-bg-page);
+}
+
+.design-system-button--ghost {
+  background-color: transparent;
+  color: var(--sys-color-action-brand);
+}
+
+.design-system-button--ghost:hover:not(.design-system-button--disabled) {
+  background-color: rgba(0, 102, 204, 0.1);
+  /* Brand color with opacity */
+}
+
+.design-system-button--error {
+  background-color: var(--sys-color-status-error);
+  color: #FFFFFF;
+}
+
+/* States */
 .design-system-button--disabled {
-  cursor: not-allowed !important;
+  opacity: 0.5;
+  cursor: not-allowed;
   pointer-events: none;
 }
 
 .design-system-button--loading {
-  cursor: wait !important;
+  cursor: wait;
 }
 
 .design-system-button--full-width {
-  width: 100% !important;
+  width: 100%;
 }
 
 /* Loader */
@@ -72,48 +102,22 @@
 }
 
 .design-system-button__spinner {
-  width: 16px;
-  height: 16px;
+  width: 1em;
+  height: 1em;
   animation: spin 1s linear infinite;
 }
 
-.design-system-button--sm .design-system-button__spinner {
-  width: 14px;
-  height: 14px;
-}
-
-.design-system-button--lg .design-system-button__spinner {
-  width: 18px;
-  height: 18px;
-}
-
-.design-system-button__content {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-/* Animação do spinner */
 @keyframes spin {
   from {
     transform: rotate(0deg);
   }
+
   to {
     transform: rotate(360deg);
   }
 }
 
-/* Focus states para acessibilidade */
 .design-system-button:focus-visible {
-  outline: 2px solid #3b82f6;
+  outline: 2px solid var(--sys-color-action-brand);
   outline-offset: 2px;
 }
-
-/* Responsividade */
-@media (max-width: 640px) {
-  .design-system-button--lg {
-    padding: 12px 16px !important;
-    font-size: 1rem !important;
-    min-height: 40px !important;
-  }
-} 

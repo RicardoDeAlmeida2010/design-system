@@ -1,313 +1,113 @@
-# 🎨 Design System
-
-Um design system completo construído com React, TypeScript e Storybook, utilizando design tokens para consistência visual.
-
-## ✨ Características
-
-- **Componentes Reutilizáveis**: Button, Input, Checkbox e RadioButton
-- **Design Tokens**: Sistema de tokens para cores, espaçamentos, tipografia e bordas
-- **Storybook**: Documentação interativa e playground para componentes
-- **TypeScript**: Tipagem completa para melhor DX
-- **Testes**: Cobertura de testes com Vitest e Testing Library
-- **Build Otimizado**: Configuração para publicação como pacote npm
-
-## 🚀 Componentes Disponíveis
-
-### Button
-Componente de botão com múltiplas variantes e estados.
-
-```tsx
-import { Button } from '@your-org/design-system';
-
-<Button variant="primary" size="medium" onClick={handleClick}>
-  Clique aqui
-</Button>
-```
-
-**Variantes**: `primary`, `secondary`, `success`, `warning`, `error`, `ghost`, `outline`
-**Tamanhos**: `small`, `medium`, `large`
-**Estados**: `disabled`, `loading`, `fullWidth`
-
-### Input
-Componente de entrada de texto com suporte a ícones e estados.
-
-```tsx
-import { Input } from '@your-org/design-system';
-
-<Input 
-  label="Email"
-  placeholder="Digite seu email"
-  helperText="Será usado apenas para notificações"
-  startIcon="🔍"
-  fullWidth
-/>
-```
-
-**Variantes**: `default`, `outlined`, `filled`
-**Tamanhos**: `small`, `medium`, `large`
-**Estados**: `error`, `success`, `disabled`
-**Recursos**: `label`, `helperText`, `startIcon`, `endIcon`, `fullWidth`
-
-### Checkbox
-Componente de checkbox com suporte a estado indeterminado.
-
-```tsx
-import { Checkbox } from '@your-org/design-system';
-
-<Checkbox 
-  label="Aceito os termos e condições"
-  indeterminate={false}
-  onChange={handleChange}
-/>
-```
-
-**Tamanhos**: `small`, `medium`, `large`
-**Estados**: `error`, `disabled`, `indeterminate`
-**Recursos**: `label`, `fullWidth`
-
-### RadioButton
-Componente de radio button para seleção única.
-
-```tsx
-import { RadioButton } from '@your-org/design-system';
-
-<RadioButton 
-  label="Opção 1"
-  name="group"
-  value="option1"
-  onChange={handleChange}
-/>
-```
-
-**Tamanhos**: `small`, `medium`, `large`
-**Estados**: `error`, `disabled`
-**Recursos**: `label`, `fullWidth`
-
-## 🎨 Design Tokens
-
-O sistema utiliza tokens de design para garantir consistência:
-
-```tsx
-import { getColor, getSpacing, getFontSize, getBorderRadius } from '@your-org/design-system';
-
-// Cores
-getColor('primary')     // #007bff
-getColor('secondary')   // #6c757d
-getColor('success')     // #28a745
-getColor('error')       // #dc3545
-
-// Espaçamentos
-getSpacing(1)           // 4px
-getSpacing(2)           // 8px
-getSpacing(3)           // 12px
-
-// Tipografia
-getFontSize('small')    // 12px
-getFontSize('medium')   // 16px
-getFontSize('large')    // 20px
-
-// Bordas
-getBorderRadius('small')  // 4px
-getBorderRadius('medium') // 8px
-getBorderRadius('large')  // 16px
-```
-
-## 📦 Instalação
-
-```bash
-npm install @your-org/design-system
-```
-
-## 🔧 Desenvolvimento
-
-### Pré-requisitos
-- Node.js 18+
-- npm ou yarn
-
-### Instalação das dependências
-```bash
-npm install
-```
-
-### Executar o projeto
-```bash
-npm run dev
-```
-
-### Executar Storybook
-```bash
-npm run storybook
-```
-
-### Executar testes
-```bash
-npm test
-```
-
-### Build para produção
-```bash
-npm run build
-```
-
-## 📚 Storybook
-
-O Storybook está disponível em `http://localhost:6006` e inclui:
-
-- **Documentação**: Descrições detalhadas de cada componente
-- **Controles Interativos**: Teste diferentes props em tempo real
-- **Exemplos de Uso**: Casos de uso comuns e variações
-- **Estados**: Demonstração de todos os estados possíveis
-
-### Estrutura das Stories
-- **Components/Button**: Todas as variantes e estados do botão
-- **Components/Input**: Diferentes tipos de input com ícones
-- **Components/Checkbox**: Checkboxes com estado indeterminado
-- **Components/RadioButton**: Grupos de radio buttons
-
-## 🌐 GitHub Pages
-
-O Storybook é automaticamente deployado para GitHub Pages a cada push na branch `main`.
-
-### Configuração
-
-1. **Criar repositório no GitHub**:
-   ```bash
-   git remote add origin https://github.com/guigonzalez/design-system.git
-   git branch -M main
-   git push -u origin main
-   ```
-
-2. **Habilitar GitHub Pages**:
-   - Vá para Settings > Pages
-   - Source: Deploy from a branch
-   - Branch: `gh-pages` (será criada automaticamente)
-   - Folder: `/ (root)`
-
-3. **Deploy automático**:
-   - O workflow `.github/workflows/deploy-storybook.yml` fará o deploy automaticamente
-   - Acesse: `https://guigonzalez.github.io/design-system`
-
-### Build manual
-```bash
-npm run build-storybook:gh-pages
-```
-
-## ⚠️ Warnings
-
-O projeto pode exibir alguns warnings do Node.js e Storybook que são normais e não afetam a funcionalidade:
-
-- **ExperimentalWarning**: Funcionalidade experimental do TypeScript
-- **DeprecationWarning**: API deprecated do Storybook
-
-**Soluções implementadas:**
-- `npm run storybook` - Suprime warnings (padrão)
-- `npm run storybook:verbose` - Mostra warnings para debug
-
-Para mais detalhes, consulte [WARNINGS.md](./WARNINGS.md).
-
-## 🧪 Testes
-
-O projeto utiliza Vitest e Testing Library para testes:
-
-```bash
-# Executar todos os testes
-npm test
-
-# Executar testes em modo watch
-npm run test:watch
-
-# Executar testes com cobertura
-npm run test:coverage
-```
-
-## 📦 Publicação
-
-### Build da biblioteca
-```bash
-npm run build:lib
-```
-
-### Publicação no npm
-```bash
-npm run release
-```
-
-O projeto está configurado com semantic-release para versionamento automático baseado em commits.
-
-## 🎯 Exemplos de Uso
-
-### Formulário Completo
-```tsx
-import React, { useState } from 'react';
-import { Input, Checkbox, RadioButton, Button } from '@your-org/design-system';
-
-function MyForm() {
-  const [formData, setFormData] = useState({
-    name: '',
-    email: '',
-    terms: false,
-    paymentMethod: 'credit'
-  });
-
-  return (
-    <form onSubmit={handleSubmit}>
-      <Input
-        label="Nome"
-        value={formData.name}
-        onChange={(e) => setFormData({...formData, name: e.target.value})}
-        fullWidth
-      />
-      
-      <Input
-        label="Email"
-        type="email"
-        value={formData.email}
-        onChange={(e) => setFormData({...formData, email: e.target.value})}
-        fullWidth
-      />
-      
-      <Checkbox
-        label="Aceito os termos"
-        checked={formData.terms}
-        onChange={(e) => setFormData({...formData, terms: e.target.checked})}
-      />
-      
-      <RadioButton
-        label="Cartão de Crédito"
-        name="payment"
-        value="credit"
-        checked={formData.paymentMethod === 'credit'}
-        onChange={(e) => setFormData({...formData, paymentMethod: e.target.value})}
-      />
-      
-      <Button type="submit" variant="primary">
-        Enviar
-      </Button>
-    </form>
-  );
-}
-```
-
-## 🤝 Contribuição
-
-1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
-
-## 📄 Licença
-
-Este projeto está sob a licença MIT. Veja o arquivo [LICENSE](LICENSE) para mais detalhes.
-
-## 🆘 Suporte
-
-Para suporte e dúvidas:
-- Abra uma issue no GitHub
-- Consulte a documentação no Storybook
-- Verifique os exemplos de uso
-- Consulte [WARNINGS.md](./WARNINGS.md) para informações sobre warnings
+# 🏛️ **DESIGN SYSTEM ENTERPRISE 3.0 (BANKING/FX)**
+**Status:** `Beta` | **Version:** `3.0.0` | **Target:** `Web, iOS, Android` | **Segment:** `Banking (Câmbio)`
 
 ---
 
-Desenvolvido com ❤️ usando React, TypeScript e Storybook
+# 🔵 **1. ARQUITETURA GERAL (THE "TRI-BRID" MODEL)**
+
+### **1.1. Filosofia de Convergência**
+O sistema opera em três camadas de fidelidade:
+1.  **Core (80%):** Tokens semânticos, lógica de negócio (FX), ícones e tipografia (escala) são universais.
+2.  **Web (W3C):** Foco em responsividade fluida, navegação por mouse/teclado e acessibilidade via ARIA.
+3.  **Mobile Nativo (20%):**
+    *   **Android (Material 3):** Ripple, Elevation, Navigation Drawer.
+    *   **iOS (HIG):** Blur/Vibrancy, Large Titles, Swipe Gestures.
+
+### **1.2. Base Tecnológica**
+*   **Web:** React + Vite + CSS Variables.
+*   **Docs:** Storybook 8+.
+*   **Tokens:** W3C Design Tokens Format (`tokens.json`).
+
+---
+
+# 🔵 **2. TOKENS ENTERPRISE 3.0**
+
+Estrutura: `sys.{category}.{property}.{variant}`.
+
+### **2.1. Cores Semânticas (Banking FX)**
+| Token | Light | Dark | Uso |
+| :--- | :--- | :--- | :--- |
+| `sys.color.fx.up` | `#16A34A` | `#30D158` | Valorização (Alta) |
+| `sys.color.fx.down` | `#DC2626` | `#FF453A` | Desvalorização (Baixa) |
+| `sys.color.action.brand` | `#0052CC` | `#0A84FF` | Ação Principal |
+| `sys.color.bg.surface` | `#F3F4F6` | `#1C1C1E` | Cards e Containers |
+
+### **2.2. Tipografia Fluida**
+*   **Font Family:** `Inter` (Web/Android), `SF Pro` (iOS).
+*   **Scale:** `display.lg` (48px), `heading.md` (32px), `body.md` (16px), `caption` (12px).
+
+---
+
+# 🔵 **3. COMPONENTES CORE (IMPLEMENTADOS)**
+
+### **3.1. CurrencyInput (Input de Moeda)**
+*   **Anatomia:** Dropdown de Bandeira + Código ISO + Input Numérico.
+*   **Comportamento:** Formatação automática de moeda (BRL/USD/EUR).
+*   **Local:** `src/components/CurrencyInput`
+
+### **3.2. FxRateCard (Card de Cotação)**
+*   **Anatomia:** Par (USD/BRL), Variação (%), Preço, Sparkline SVG.
+*   **Variantes:** `Default`, `Compact`, `Live`.
+*   **Local:** `src/components/FxRateCard`
+
+### **3.3. DataTable (Tabela Enterprise)**
+*   **Features:** Sticky Header, Multi-select, Densidade.
+*   **Local:** `src/components/DataTable`
+
+### **3.4. Button (Refatorado)**
+*   **Variantes:** `Primary`, `Secondary`, `Ghost`, `Error`.
+*   **Local:** `src/components/Button`
+
+---
+
+# 🔵 **4. TEMPLATES (PROTOTIPAGEM)**
+
+### **4.1. Dashboard de Câmbio**
+*   **Header:** Saudação e Avatar.
+*   **Balance:** Saldo total consolidado.
+*   **Rates Grid:** Grade de cotações favoritas.
+*   **Quick Action:** Widget de conversão rápida.
+*   **Local:** `src/templates/Dashboard`
+
+---
+
+# 🔵 **5. COMO RODAR**
+
+1.  **Instalar dependências:**
+    ```bash
+    npm install
+    ```
+
+2.  **Rodar Storybook (Documentação Interativa):**
+    ```bash
+    npm run storybook
+    ```
+    Acesse: `http://localhost:6006` (ou porta disponível).
+
+3.  **Build de Produção:**
+    ```bash
+    npm run build
+    ```
+
+---
+
+# 🔵 **6. STATUS DE MIGRAÇÃO**
+
+| Componente | Status | Versão |
+| :--- | :--- | :--- |
+| **Tokens** | ✅ Atualizado | 3.0 (FX + Tri-Brid) |
+| **Button** | ✅ Refatorado | 3.0 |
+| **DataTable** | ✅ Novo | 3.0 |
+| **CurrencyInput** | ✅ Novo | 3.0 |
+| **FxRateCard** | ✅ Novo | 3.0 |
+| **Dashboard** | ✅ Novo | 3.0 |
+| *Input (Legacy)* | ⚠️ Pendente | 1.0 |
+| *Checkbox (Legacy)* | ⚠️ Pendente | 1.0 |
+| *Radio (Legacy)* | ⚠️ Pendente | 1.0 |
+
+---
+
+# 🔵 **7. GOVERNANÇA**
+
+*   **Versionamento:** SemVer.
+*   **Contribuição:** Todo novo componente requer spec de Design e Testes.

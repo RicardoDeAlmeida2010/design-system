@@ -1,0 +1,39 @@
+.design-system-skeleton {
+    display: block;
+    background-color: var(--sys-color-bg-surface-variant);
+    border-radius: var(--sys-radius-md);
+    width: 100%;
+    height: 100%;
+
+    /* Shimmer Effect */
+    background: linear-gradient(90deg,
+            var(--sys-color-bg-surface-variant) 25%,
+            var(--sys-color-bg-surface) 50%,
+            var(--sys-color-bg-surface-variant) 75%);
+    background-size: 200% 100%;
+    animation: shimmer 1.5s infinite linear;
+}
+
+.design-system-skeleton--text {
+    height: 1em;
+    margin-bottom: 0.5em;
+    border-radius: var(--sys-radius-sm);
+}
+
+.design-system-skeleton--circular {
+    border-radius: 50%;
+}
+
+.design-system-skeleton--rectangular {
+    border-radius: var(--sys-radius-md);
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: 200% 0;
+    }
+
+    100% {
+        background-position: -200% 0;
+    }
+}
