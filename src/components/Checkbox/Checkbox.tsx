@@ -22,15 +22,18 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       className,
       style,
       checked,
+      defaultChecked,
       ...props
     },
     ref
   ) => {
-    const [isChecked, setIsChecked] = useState(checked || false);
+    const [isChecked, setIsChecked] = useState(checked !== undefined ? checked : defaultChecked || false);
     const [isIndeterminate, setIsIndeterminate] = useState(indeterminate);
 
     useEffect(() => {
-      setIsChecked(checked || false);
+      if (checked !== undefined) {
+        setIsChecked(checked);
+      }
     }, [checked]);
 
     useEffect(() => {
@@ -192,4 +195,4 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
 
 Checkbox.displayName = 'Checkbox';
 
-export default Checkbox; 
+export default Checkbox;

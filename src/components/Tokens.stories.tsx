@@ -29,7 +29,7 @@ export const Colors = () => (
           <h4 style={{ marginBottom: 8 }}>{group}</h4>
           {typeof values === 'object' && values !== null ? (
             Object.entries(values).map(([name, value]) => (
-              <div key={name} style={{ display: 'flex', alignItems: 'center', marginBottom: 8 }}>
+              <div key={`${group}-${name}`} style={{ display: 'flex', alignItems: 'center', marginBottom: 8 }}>
                 <span style={{
                   display: 'inline-block',
                   width: 32,
