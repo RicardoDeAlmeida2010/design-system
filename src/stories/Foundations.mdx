@@ -1,0 +1,276 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Fundamentos/Princípios" />
+
+<div style={{ fontFamily: 'var(--font-family-sans)', maxWidth: '900px', margin: '0 auto', padding: 'var(--space-8)' }}>
+  
+  <h1 style={{
+    fontSize: 'var(--font-size-3xl)',
+    fontWeight: 'var(--font-weight-bold)',
+    marginBottom: 'var(--space-4)',
+    color: 'var(--text-primary)'
+  }}>
+    Princípios de Design
+  </h1>
+  
+  <p style={{
+    fontSize: 'var(--font-size-lg)',
+    color: 'var(--text-secondary)',
+    marginBottom: 'var(--space-12)',
+    lineHeight: 'var(--line-height-normal)'
+  }}>
+    Nosso design system é baseado em princípios fundamentais que garantem clareza, consistência e eficiência em todas as interfaces.
+  </p>
+
+  {/* Clareza Cognitiva */}
+  <div style={{
+    marginBottom: 'var(--space-12)',
+    padding: 'var(--space-6)',
+    background: 'var(--bg-secondary)',
+    borderRadius: 'var(--radius-lg)',
+    borderLeft: '4px solid var(--brand-500)'
+  }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-4)',
+      color: 'var(--text-primary)'
+    }}>
+      🧠 Clareza Cognitiva
+    </h2>
+    <p style={{
+      color: 'var(--text-secondary)',
+      marginBottom: 'var(--space-4)',
+      lineHeight: 'var(--line-height-normal)'
+    }}>
+      Reduza a carga cognitiva em cada interação para facilitar o uso e compreensão.
+    </p>
+    <ul style={{
+      color: 'var(--text-secondary)',
+      paddingLeft: 'var(--space-6)',
+      lineHeight: 'var(--line-height-relaxed)'
+    }}>
+      <li>Uma ação primária por contexto</li>
+      <li>Hierarquia visual clara: primário &gt; secundário &gt; terciário</li>
+      <li>Informação progressiva (progressive disclosure)</li>
+      <li>Minimize distrações e elementos desnecessários</li>
+    </ul>
+  </div>
+
+  {/* Consistência Preditiva */}
+  <div style={{
+    marginBottom: 'var(--space-12)',
+    padding: 'var(--space-6)',
+    background: 'var(--bg-secondary)',
+    borderRadius: 'var(--radius-lg)',
+    borderLeft: '4px solid var(--green-500)'
+  }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-4)',
+      color: 'var(--text-primary)'
+    }}>
+      🎯 Consistência Preditiva
+    </h2>
+    <p style={{
+      color: 'var(--text-secondary)',
+      marginBottom: 'var(--space-4)',
+      lineHeight: 'var(--line-height-normal)'
+    }}>
+      Mesmos padrões devem sempre produzir os mesmos resultados.
+    </p>
+    <ul style={{
+      color: 'var(--text-secondary)',
+      paddingLeft: 'var(--space-6)',
+      lineHeight: 'var(--line-height-relaxed)'
+    }}>
+      <li>Posicionamento consistente de ações críticas</li>
+      <li>Linguagem unificada cross-platform</li>
+      <li>Estados visuais previsíveis</li>
+      <li>Comportamentos padronizados em todos os componentes</li>
+    </ul>
+  </div>
+
+  {/* Feedback Imediato */}
+  <div style={{
+    marginBottom: 'var(--space-12)',
+    padding: 'var(--space-6)',
+    background: 'var(--bg-secondary)',
+    borderRadius: 'var(--radius-lg)',
+    borderLeft: '4px solid var(--yellow-700)'
+  }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-4)',
+      color: 'var(--text-primary)'
+    }}>
+      ⚡ Feedback Imediato
+    </h2>
+    <p style={{
+      color: 'var(--text-secondary)',
+      marginBottom: 'var(--space-4)',
+      lineHeight: 'var(--line-height-normal)'
+    }}>
+      Toda ação deve gerar uma resposta visual clara e imediata.
+    </p>
+    <ul style={{
+      color: 'var(--text-secondary)',
+      paddingLeft: 'var(--space-6)',
+      lineHeight: 'var(--line-height-relaxed)'
+    }}>
+      <li>Resposta visual em &lt;100ms para interações</li>
+      <li>Estados de loading visíveis após 300ms</li>
+      <li>Confirmações para ações destrutivas</li>
+      <li>Mensagens de erro com contexto e solução</li>
+    </ul>
+  </div>
+
+  {/* Eficiência do Usuário */}
+  <div style={{
+    marginBottom: 'var(--space-12)',
+    padding: 'var(--space-6)',
+    background: 'var(--bg-secondary)',
+    borderRadius: 'var(--radius-lg)',
+    borderLeft: '4px solid var(--red-500)'
+  }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-4)',
+      color: 'var(--text-primary)'
+    }}>
+      🚀 Eficiência do Usuário
+    </h2>
+    <p style={{
+      color: 'var(--text-secondary)',
+      marginBottom: 'var(--space-4)',
+      lineHeight: 'var(--line-height-normal)'
+    }}>
+      Minimize o esforço necessário para completar tarefas comuns.
+    </p>
+    <ul style={{
+      color: 'var(--text-secondary)',
+      paddingLeft: 'var(--space-6)',
+      lineHeight: 'var(--line-height-relaxed)'
+    }}>
+      <li>Minimize steps para tasks frequentes</li>
+      <li>Atalhos de teclado para power users</li>
+      <li>Defaults inteligentes baseados em contexto</li>
+      <li>Memorização de preferências do usuário</li>
+    </ul>
+  </div>
+
+  {/* Acessibilidade */}
+  <div style={{
+    padding: 'var(--space-8)',
+    background: 'linear-gradient(135deg, var(--brand-50) 0%, var(--green-50) 100%)',
+    borderRadius: 'var(--radius-lg)',
+    border: '2px solid var(--brand-200)'
+  }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-bold)',
+      marginBottom: 'var(--space-4)',
+      color: 'var(--text-primary)'
+    }}>
+      ♿ Acessibilidade AAA (WCAG 2.2)
+    </h2>
+    <p style={{
+      color: 'var(--text-secondary)',
+      marginBottom: 'var(--space-6)',
+      lineHeight: 'var(--line-height-normal)'
+    }}>
+      Todos os componentes seguem as diretrizes WCAG 2.2 nível AAA.
+    </p>
+    
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+      gap: 'var(--space-4)'
+    }}>
+      <div style={{
+        padding: 'var(--space-4)',
+        background: 'white',
+        borderRadius: 'var(--radius-md)',
+        boxShadow: 'var(--elevation-1)'
+      }}>
+        <h3 style={{
+          fontSize: 'var(--font-size-md)',
+          fontWeight: 'var(--font-weight-semibold)',
+          marginBottom: 'var(--space-2)',
+          color: 'var(--text-primary)'
+        }}>
+          Contraste
+        </h3>
+        <ul style={{
+          fontSize: 'var(--font-size-sm)',
+          color: 'var(--text-secondary)',
+          paddingLeft: 'var(--space-5)',
+          margin: 0,
+          lineHeight: 'var(--line-height-relaxed)'
+        }}>
+          <li>Texto normal: 7:1 (AAA)</li>
+          <li>Texto grande: 4.5:1</li>
+          <li>Componentes UI: 3:1</li>
+        </ul>
+      </div>
+
+      <div style={{
+        padding: 'var(--space-4)',
+        background: 'white',
+        borderRadius: 'var(--radius-md)',
+        boxShadow: 'var(--elevation-1)'
+      }}>
+        <h3 style={{
+          fontSize: 'var(--font-size-md)',
+          fontWeight: 'var(--font-weight-semibold)',
+          marginBottom: 'var(--space-2)',
+          color: 'var(--text-primary)'
+        }}>
+          Teclado
+        </h3>
+        <ul style={{
+          fontSize: 'var(--font-size-sm)',
+          color: 'var(--text-secondary)',
+          paddingLeft: 'var(--space-5)',
+          margin: 0,
+          lineHeight: 'var(--line-height-relaxed)'
+        }}>
+          <li>Tab order lógico</li>
+          <li>Focus visible sempre</li>
+          <li>Skip links disponíveis</li>
+        </ul>
+      </div>
+
+      <div style={{
+        padding: 'var(--space-4)',
+        background: 'white',
+        borderRadius: 'var(--radius-md)',
+        boxShadow: 'var(--elevation-1)'
+      }}>
+        <h3 style={{
+          fontSize: 'var(--font-size-md)',
+          fontWeight: 'var(--font-weight-semibold)',
+          marginBottom: 'var(--space-2)',
+          color: 'var(--text-primary)'
+        }}>
+          Screen Readers
+        </h3>
+        <ul style={{
+          fontSize: 'var(--font-size-sm)',
+          color: 'var(--text-secondary)',
+          paddingLeft: 'var(--space-5)',
+          margin: 0,
+          lineHeight: 'var(--line-height-relaxed)'
+        }}>
+          <li>ARIA labels corretos</li>
+          <li>Roles semânticos</li>
+          <li>Alt text descritivo</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+</div>

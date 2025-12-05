@@ -1,9 +1,15 @@
 import '@testing-library/jest-dom';
-import { vi } from 'vitest';
+import { vi, afterEach } from 'vitest';
+import { cleanup } from '@testing-library/react';
+
+// Auto cleanup after each test
+afterEach(() => {
+  cleanup();
+});
 
 // Mock para CSS modules
 const mockCssModule = new Proxy({}, {
-  get: function() {
+  get: function () {
     return 'mock-class-name';
   }
 });

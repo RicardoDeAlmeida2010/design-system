@@ -1,3 +1,4 @@
+// @vitest-environment jsdom
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import Checkbox from './Checkbox';
@@ -17,10 +18,10 @@ describe('Checkbox', () => {
   it('handles change event', () => {
     const handleChange = vi.fn();
     render(<Checkbox onChange={handleChange} label="Test checkbox" />);
-    
+
     const checkbox = screen.getByRole('checkbox');
     fireEvent.click(checkbox);
-    
+
     expect(handleChange).toHaveBeenCalled();
   });
 
@@ -51,7 +52,7 @@ describe('Checkbox', () => {
   it('applies fullWidth prop', () => {
     render(<Checkbox fullWidth label="Test checkbox" />);
     const label = screen.getByText('Test checkbox');
-    expect(label.closest('label')).toHaveStyle('width: 100%');
+    expect(label.closest('label')).toHaveClass('checkbox--full-width');
   });
 
   it('forwards ref correctly', () => {
@@ -63,10 +64,10 @@ describe('Checkbox', () => {
   it('handles label click', () => {
     const handleChange = vi.fn();
     render(<Checkbox onChange={handleChange} label="Test checkbox" />);
-    
+
     const label = screen.getByText('Test checkbox');
     fireEvent.click(label);
-    
+
     expect(handleChange).toHaveBeenCalled();
   });
-}); 
+});

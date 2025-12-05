@@ -1,103 +1,340 @@
 import { Meta, ColorPalette, ColorItem } from '@storybook/blocks';
 
-<Meta title="Design System/Colors" />
+<Meta title="Fundamentos/Cores" />
 
-# Cores do Sistema (Enterprise 3.0)
+<div style={{ fontFamily: 'var(--font-family-sans)', maxWidth: '1200px', margin: '0 auto', padding: 'var(--space-8)' }}>
+  
+  <h1 style={{
+    fontSize: 'var(--font-size-3xl)',
+    fontWeight: 'var(--font-weight-bold)',
+    marginBottom: 'var(--space-4)',
+    color: 'var(--text-primary)'
+  }}>
+    Sistema de Cores
+  </h1>
+  
+  <p style={{
+    fontSize: 'var(--font-size-lg)',
+    color: 'var(--text-secondary)',
+    marginBottom: 'var(--space-12)',
+    lineHeight: 'var(--line-height-normal)'
+  }}>
+    Paleta de cores completa baseada em tokens primitivos e semânticos que se adaptam automaticamente ao tema claro/escuro.
+  </p>
 
-Esta paleta define as cores semânticas utilizadas no sistema. Elas se adaptam automaticamente ao modo claro e escuro.
+  {/* Grayscale */}
+  <div style={{ marginBottom: 'var(--space-12)' }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-6)',
+      color: 'var(--text-primary)'
+    }}>
+      Escala de Cinza
+    </h2>
+    <ColorPalette>
+      <ColorItem
+        title="Gray Scale"
+        subtitle="Tons neutros de cinza"
+        colors={{
+          '0 (White)': '#FFFFFF',
+          '50': '#FAFAFA',
+          '100': '#F5F5F5',
+          '200': '#EEEEEE',
+          '300': '#E0E0E0',
+          '400': '#BDBDBD',
+          '500': '#9E9E9E',
+          '600': '#757575',
+          '700': '#616161',
+          '800': '#424242',
+          '900': '#212121',
+          '1000 (Black)': '#000000'
+        }}
+      />
+    </ColorPalette>
+  </div>
 
-## Cores de Fundo (Background)
-<ColorPalette>
-  <ColorItem
-    title="Page"
-    subtitle="Fundo principal da página"
-    colors={{ Light: '#FFFFFF', Dark: '#000000' }}
-  />
-  <ColorItem
-    title="Surface"
-    subtitle="Cards e containers"
-    colors={{ Light: '#F3F4F6', Dark: '#1C1C1E' }}
-  />
-  <ColorItem
-    title="Surface Variant"
-    subtitle="Elementos secundários"
-    colors={{ Light: '#E5E7EB', Dark: '#2C2C2E' }}
-  />
-</ColorPalette>
+  {/* Brand Colors */}
+  <div style={{ marginBottom: 'var(--space-12)' }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-6)',
+      color: 'var(--text-primary)'
+    }}>
+      Cores da Marca (Brand)
+    </h2>
+    <ColorPalette>
+      <ColorItem
+        title="Brand Blue"
+        subtitle="Cor primária da marca"
+        colors={{
+          '50': '#E3F2FD',
+          '100': '#BBDEFB',
+          '200': '#90CAF9',
+          '300': '#64B5F6',
+          '400': '#42A5F5',
+          '500': '#2196F3',
+          '600': '#1E88E5',
+          '700': '#1976D2',
+          '800': '#1565C0',
+          '900': '#0D47A1'
+        }}
+      />
+    </ColorPalette>
+  </div>
 
-## Conteúdo (Texto e Ícones)
-<ColorPalette>
-  <ColorItem
-    title="Primary"
-    subtitle="Texto principal"
-    colors={{ Light: '#111827', Dark: '#FFFFFF' }}
-  />
-  <ColorItem
-    title="Secondary"
-    subtitle="Texto de apoio"
-    colors={{ Light: '#6B7280', Dark: '#8E8E93' }}
-  />
-  <ColorItem
-    title="Tertiary"
-    subtitle="Placeholders e desabilitados"
-    colors={{ Light: '#9CA3AF', Dark: '#636366' }}
-  />
-</ColorPalette>
+  {/* Success/Green */}
+  <div style={{ marginBottom: 'var(--space-12)' }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-6)',
+      color: 'var(--text-primary)'
+    }}>
+      Verde (Success)
+    </h2>
+    <ColorPalette>
+      <ColorItem
+        title="Green"
+        subtitle="Sucesso e confirmação"
+        colors={{
+          '50': '#E8F5E9',
+          '100': '#C8E6C9',
+          '200': '#A5D6A7',
+          '300': '#81C784',
+          '400': '#66BB6A',
+          '500': '#4CAF50',
+          '600': '#43A047',
+          '700': '#388E3C',
+          '800': '#2E7D32',
+          '900': '#1B5E20'
+        }}
+      />
+    </ColorPalette>
+  </div>
 
-## Ações (Brand)
-<ColorPalette>
-  <ColorItem
-    title="Brand"
-    subtitle="Cor primária da marca"
-    colors={{ Light: '#0052CC', Dark: '#0A84FF' }}
-  />
-  <ColorItem
-    title="Brand Hover"
-    subtitle="Estado de hover"
-    colors={{ Light: '#0043A6', Dark: '#0066CC' }}
-  />
-</ColorPalette>
+  {/* Error/Red */}
+  <div style={{ marginBottom: 'var(--space-12)' }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-6)',
+      color: 'var(--text-primary)'
+    }}>
+      Vermelho (Error)
+    </h2>
+    <ColorPalette>
+      <ColorItem
+        title="Red"
+        subtitle="Erros e alertas críticos"
+        colors={{
+          '50': '#FFEBEE',
+          '100': '#FFCDD2',
+          '200': '#EF9A9A',
+          '300': '#E57373',
+          '400': '#EF5350',
+          '500': '#F44336',
+          '600': '#E53935',
+          '700': '#D32F2F',
+          '800': '#C62828',
+          '900': '#B71C1C'
+        }}
+      />
+    </ColorPalette>
+  </div>
 
-## Status
-<ColorPalette>
-  <ColorItem
-    title="Success"
-    subtitle="Sucesso e confirmação"
-    colors={{ Light: '#059669', Dark: '#30D158' }}
-  />
-  <ColorItem
-    title="Error"
-    subtitle="Erros e alertas críticos"
-    colors={{ Light: '#DC2626', Dark: '#FF453A' }}
-  />
-  <ColorItem
-    title="Warning"
-    subtitle="Avisos e atenção"
-    colors={{ Light: '#D97706', Dark: '#FFD60A' }}
-  />
-  <ColorItem
-    title="Info"
-    subtitle="Informações gerais"
-    colors={{ Light: '#2563EB', Dark: '#64D2FF' }}
-  />
-</ColorPalette>
+  {/* Warning/Yellow */}
+  <div style={{ marginBottom: 'var(--space-12)' }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-6)',
+      color: 'var(--text-primary)'
+    }}>
+      Amarelo (Warning)
+    </h2>
+    <ColorPalette>
+      <ColorItem
+        title="Yellow"
+        subtitle="Avisos e atenção"
+        colors={{
+          '50': '#FFFDE7',
+          '100': '#FFF9C4',
+          '200': '#FFF59D',
+          '300': '#FFF176',
+          '400': '#FFEE58',
+          '500': '#FFEB3B',
+          '600': '#FDD835',
+          '700': '#FBC02D',
+          '800': '#F9A825',
+          '900': '#F57F17'
+        }}
+      />
+    </ColorPalette>
+  </div>
 
-## Câmbio (FX)
-Cores específicas para o domínio financeiro de câmbio.
-<ColorPalette>
-  <ColorItem
-    title="FX Up"
-    subtitle="Valorização (Alta)"
-    colors={{ Light: '#16A34A', Dark: '#30D158' }}
-  />
-  <ColorItem
-    title="FX Down"
-    subtitle="Desvalorização (Baixa)"
-    colors={{ Light: '#DC2626', Dark: '#FF453A' }}
-  />
-  <ColorItem
-    title="FX Neutral"
-    subtitle="Estabilidade"
-    colors={{ Light: '#6B7280', Dark: '#8E8E93' }}
-  />
-</ColorPalette>
+  {/* Semantic Tokens */}
+  <div style={{ marginBottom: 'var(--space-12)' }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-6)',
+      color: 'var(--text-primary)'
+    }}>
+      Tokens Semânticos
+    </h2>
+    <p style={{
+      fontSize: 'var(--font-size-base)',
+      color: 'var(--text-secondary)',
+      marginBottom: 'var(--space-6)',
+      lineHeight: 'var(--line-height-normal)'
+    }}>
+      Cores com significado contextual que se adaptam ao tema.
+    </p>
+
+    <h3 style={{
+      fontSize: 'var(--font-size-lg)',
+      fontWeight: 'var(--font-weight-medium)',
+      marginBottom: 'var(--space-4)',
+      color: 'var(--text-primary)'
+    }}>
+      Texto
+    </h3>
+    <ColorPalette>
+      <ColorItem
+        title="Text Colors"
+        subtitle="Cores de texto"
+        colors={{
+          'Primary': 'var(--text-primary)',
+          'Secondary': 'var(--text-secondary)',
+          'Tertiary': 'var(--text-tertiary)',
+          'Disabled': 'var(--text-disabled)',
+          'Inverse': 'var(--text-inverse)'
+        }}
+      />
+    </ColorPalette>
+
+    <h3 style={{
+      fontSize: 'var(--font-size-lg)',
+      fontWeight: 'var(--font-weight-medium)',
+      marginTop: 'var(--space-8)',
+      marginBottom: 'var(--space-4)',
+      color: 'var(--text-primary)'
+    }}>
+      Background
+    </h3>
+    <ColorPalette>
+      <ColorItem
+        title="Background Colors"
+        subtitle="Cores de fundo"
+        colors={{
+          'Primary': 'var(--bg-primary)',
+          'Secondary': 'var(--bg-secondary)',
+          'Tertiary': 'var(--bg-tertiary)',
+          'Elevated': 'var(--bg-elevated)'
+        }}
+      />
+    </ColorPalette>
+
+    <h3 style={{
+      fontSize: 'var(--font-size-lg)',
+      fontWeight: 'var(--font-weight-medium)',
+      marginTop: 'var(--space-8)',
+      marginBottom: 'var(--space-4)',
+      color: 'var(--text-primary)'
+    }}>
+      Status
+    </h3>
+    <ColorPalette>
+      <ColorItem
+        title="Status Colors"
+        subtitle="Estados do sistema"
+        colors={{
+          'Success': 'var(--status-success)',
+          'Error': 'var(--status-error)',
+          'Warning': 'var(--status-warning)',
+          'Info': 'var(--status-info)'
+        }}
+      />
+    </ColorPalette>
+  </div>
+
+  {/* Fintech Extension */}
+  <div style={{
+    padding: 'var(--space-8)',
+    background: 'var(--bg-secondary)',
+    borderRadius: 'var(--radius-lg)',
+    border: '2px solid var(--border-primary)'
+  }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-4)',
+      color: 'var(--text-primary)'
+    }}>
+      💱 Extensão Fintech
+    </h2>
+    <p style={{
+      fontSize: 'var(--font-size-base)',
+      color: 'var(--text-secondary)',
+      marginBottom: 'var(--space-6)',
+      lineHeight: 'var(--line-height-normal)'
+    }}>
+      Cores específicas para aplicações financeiras e câmbio.
+    </p>
+
+    <h3 style={{
+      fontSize: 'var(--font-size-lg)',
+      fontWeight: 'var(--font-weight-medium)',
+      marginBottom: 'var(--space-4)',
+      color: 'var(--text-primary)'
+    }}>
+      Variação de Taxa
+    </h3>
+    <ColorPalette>
+      <ColorItem
+        title="Rate Positive"
+        subtitle="Valorização (Alta)"
+        colors={{
+          '50': '#E8F5E9',
+          '500': '#4CAF50',
+          '900': '#1B5E20'
+        }}
+      />
+      <ColorItem
+        title="Rate Negative"
+        subtitle="Desvalorização (Baixa)"
+        colors={{
+          '50': '#FFEBEE',
+          '500': '#F44336',
+          '900': '#B71C1C'
+        }}
+      />
+    </ColorPalette>
+
+    <h3 style={{
+      fontSize: 'var(--font-size-lg)',
+      fontWeight: 'var(--font-weight-medium)',
+      marginTop: 'var(--space-8)',
+      marginBottom: 'var(--space-4)',
+      color: 'var(--text-primary)'
+    }}>
+      Estados de Transação
+    </h3>
+    <ColorPalette>
+      <ColorItem
+        title="Transaction States"
+        subtitle="Estados de transação"
+        colors={{
+          'Pending': '#FFC107',
+          'Processing': '#2196F3',
+          'Completed': '#4CAF50',
+          'Failed': '#F44336',
+          'Cancelled': '#9E9E9E'
+        }}
+      />
+    </ColorPalette>
+  </div>
+
+</div>

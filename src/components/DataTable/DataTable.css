@@ -1,8 +1,13 @@
+/**
+ * DataTable Component
+ * Using Design System tokens from DS_banco00.md
+ */
+
 .design-system-datatable {
     width: 100%;
-    border: 1px solid var(--sys-color-border-secondary, #e2e8f0);
-    border-radius: 8px;
-    background-color: var(--sys-color-bg-surface);
+    border: 1px solid var(--border-secondary);
+    border-radius: var(--radius-md);
+    background-color: var(--bg-secondary);
     overflow: hidden;
     display: flex;
     flex-direction: column;
@@ -17,48 +22,49 @@
     width: 100%;
     border-collapse: collapse;
     text-align: left;
-    font-family: var(--sys-font-family);
+    font-family: var(--font-family-sans);
 }
 
 /* Header */
 .design-system-datatable__header-cell {
-    background-color: var(--sys-color-bg-surface);
-    color: var(--sys-color-content-secondary);
-    font-weight: 600;
-    font-size: var(--sys-type-caption-size);
+    background-color: var(--bg-secondary);
+    color: var(--text-secondary);
+    font-weight: var(--font-weight-semibold);
+    font-size: var(--font-size-xs);
     text-transform: uppercase;
-    letter-spacing: 0.05em;
-    padding: var(--sys-spacing-200);
-    border-bottom: 1px solid var(--sys-color-border-secondary, #e2e8f0);
+    letter-spacing: var(--letter-spacing-wide);
+    padding: var(--space-4);
+    border-bottom: 1px solid var(--border-secondary);
     user-select: none;
 }
 
 .design-system-datatable--sticky .design-system-datatable__header-cell {
     position: sticky;
     top: 0;
-    z-index: 10;
+    z-index: var(--z-sticky);
 }
 
 .design-system-datatable__header-cell--sortable {
     cursor: pointer;
+    transition: all var(--duration-fast) var(--ease-standard);
 }
 
 .design-system-datatable__header-cell--sortable:hover {
-    background-color: var(--sys-color-bg-page);
-    color: var(--sys-color-content-primary);
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
 }
 
 .design-system-datatable__header-content {
     display: flex;
     align-items: center;
-    gap: var(--sys-spacing-100);
+    gap: var(--space-2);
 }
 
 /* Rows & Cells */
 .design-system-datatable__row {
-    background-color: var(--sys-color-bg-page);
-    border-bottom: 1px solid var(--sys-color-border-secondary, #e2e8f0);
-    transition: background-color var(--sys-motion-duration-fast) var(--sys-motion-easing-standard);
+    background-color: var(--bg-primary);
+    border-bottom: 1px solid var(--border-secondary);
+    transition: background-color var(--duration-fast) var(--ease-standard);
 }
 
 .design-system-datatable__row:last-child {
@@ -66,37 +72,36 @@
 }
 
 .design-system-datatable__row:hover {
-    background-color: var(--sys-color-bg-surface);
+    background-color: var(--bg-secondary);
 }
 
 .design-system-datatable__row--selected {
-    background-color: rgba(0, 102, 204, 0.05);
-    /* Brand color light */
+    background-color: var(--brand-50);
 }
 
 .design-system-datatable__cell {
-    padding: var(--sys-spacing-200);
-    color: var(--sys-color-content-primary);
-    font-size: var(--sys-type-body-medium-size);
+    padding: var(--space-4);
+    color: var(--text-primary);
+    font-size: var(--font-size-base);
 }
 
 /* Density */
 .design-system-datatable--compact .design-system-datatable__cell,
 .design-system-datatable--compact .design-system-datatable__header-cell {
-    padding: var(--sys-spacing-100);
-    font-size: var(--sys-type-caption-size);
+    padding: var(--space-2);
+    font-size: var(--font-size-xs);
 }
 
 .design-system-datatable--comfortable .design-system-datatable__cell,
 .design-system-datatable--comfortable .design-system-datatable__header-cell {
-    padding: var(--sys-spacing-400) var(--sys-spacing-200);
+    padding: var(--space-8) var(--space-4);
 }
 
 /* Footer */
 .design-system-datatable__footer {
-    padding: var(--sys-spacing-200);
-    border-top: 1px solid var(--sys-color-border-secondary, #e2e8f0);
-    background-color: var(--sys-color-bg-surface);
-    font-size: var(--sys-type-caption-size);
-    color: var(--sys-color-content-secondary);
+    padding: var(--space-4);
+    border-top: 1px solid var(--border-secondary);
+    background-color: var(--bg-secondary);
+    font-size: var(--font-size-xs);
+    color: var(--text-secondary);
 }

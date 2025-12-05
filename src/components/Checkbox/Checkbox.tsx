@@ -1,7 +1,7 @@
-import React, { forwardRef, useEffect, useState } from 'react';
-import { getColor, getSpacing, getFontSize, getBorderRadius } from '../../utils/tokens';
+import React, { forwardRef, useEffect } from 'react';
+import './Checkbox.css';
 
-export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type'> {
+export interface CheckboxProps extends Omit<React.InputHTMLAttributes<HTMLInputElement>, 'type' | 'size'> {
   size?: 'small' | 'medium' | 'large';
   error?: boolean;
   disabled?: boolean;
@@ -19,7 +19,7 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
       label,
       indeterminate = false,
       fullWidth = false,
-      className,
+      className = '',
       style,
       checked,
       defaultChecked,
@@ -27,167 +27,68 @@ const Checkbox = forwardRef<HTMLInputElement, CheckboxProps>(
     },
     ref
   ) => {
-    const [isChecked, setIsChecked] = useState(checked !== undefined ? checked : defaultChecked || false);
-    const [isIndeterminate, setIsIndeterminate] = useState(indeterminate);
+    // We need internal state to handle uncontrolled updates properly if needed,
+    // but for the CSS :checked selector to work with controlled components, we rely on the input props.
+    // However, indeterminate is a property that must be set via JS ref usually, or CSS :indeterminate pseudo-class.
+    // React handles indeterminate prop on inputs by updating the property.
+
+    // To simplify and ensure styles update, we rely on the native input state styling.
+
+    // Handling the ref to sync indeterminate state
+    const innerRef = React.useRef<HTMLInputElement>(null);
+    const combinedRef = (node: HTMLInputElement) => {
+      innerRef.current = node;
+      if (typeof ref === 'function') ref(node);
+      else if (ref) (ref as React.MutableRefObject<HTMLInputElement | null>).current = node;
+    };
 
     useEffect(() => {
-      if (checked !== undefined) {
-        setIsChecked(checked);
+      if (innerRef.current) {
+        innerRef.current.indeterminate = indeterminate;
       }
-    }, [checked]);
-
-    useEffect(() => {
-      setIsIndeterminate(indeterminate);
     }, [indeterminate]);
 
-    // Proporções para cada tamanho
-    const sizeMap = {
-      small: { box: 16, icon: 10, font: 'sm' },
-      medium: { box: 20, icon: 12, font: 'base' },
-      large: { box: 24, icon: 16, font: 'lg' },
-    };
-    const s = sizeMap[size];
-
-    const containerStyles: React.CSSProperties = {
-      display: 'flex',
-      alignItems: 'center',
-      gap: getSpacing(2),
-      width: fullWidth ? '100%' : 'auto',
-      opacity: disabled ? 0.6 : 1,
-      cursor: disabled ? 'not-allowed' : 'pointer',
-      padding: getSpacing(1),
-      borderRadius: getSpacing(1),
-      transition: 'background-color 0.2s ease',
-    };
-
-    const inputStyles: React.CSSProperties = {
-      width: s.box,
-      height: s.box,
-      minWidth: s.box,
-      minHeight: s.box,
-      appearance: 'none',
-      WebkitAppearance: 'none',
-      MozAppearance: 'none',
-      border: `2px solid ${error ? getColor('error') : getColor('border', 'primary')}`,
-      borderRadius: getBorderRadius('sm'),
-      backgroundColor: isChecked || isIndeterminate ? getColor('primary') : getColor('background', 'primary'),
-      cursor: disabled ? 'not-allowed' : 'pointer',
-      display: 'inline-block',
-      position: 'relative',
-      transition: 'all 0.2s ease',
-      flexShrink: 0,
-      margin: 0,
-      padding: 0,
-      verticalAlign: 'middle',
-      outline: 'none',
-    };
-
-    const labelStyles: React.CSSProperties = {
-      fontSize: getFontSize(s.font),
-      color: getColor('text', 'primary'),
-      cursor: disabled ? 'not-allowed' : 'pointer',
-      userSelect: 'none',
-      lineHeight: 1.2,
-      fontWeight: 500,
-      margin: 0,
-      padding: 0,
-      display: 'flex',
-      alignItems: 'center',
-    };
-
-    const checkmarkStyles: React.CSSProperties = {
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      width: s.icon,
-      height: s.icon,
-      pointerEvents: 'none',
-      display: 'flex',
-      alignItems: 'center',
-      justifyContent: 'center',
-    };
-
-    const indeterminateLineStyles: React.CSSProperties = {
-      position: 'absolute',
-      top: '50%',
-      left: '50%',
-      transform: 'translate(-50%, -50%)',
-      width: '60%',
-      height: 2,
-      backgroundColor: getColor('background', 'primary'),
-      borderRadius: 1,
-      pointerEvents: 'none',
-    };
-
-    useEffect(() => {
-      if (ref && typeof ref === 'object' && ref.current) {
-        ref.current.indeterminate = isIndeterminate;
-      }
-    }, [isIndeterminate, ref]);
-
-    const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-      if (!disabled) {
-        setIsChecked(e.target.checked);
-        setIsIndeterminate(false);
-        props.onChange?.(e);
-      }
-    };
+    const containerClasses = [
+      'checkbox',
+      `checkbox--${size}`,
+      error ? 'checkbox--error' : '',
+      disabled ? 'checkbox--disabled' : '',
+      fullWidth ? 'checkbox--full-width' : '',
+      className
+    ].filter(Boolean).join(' ');
 
     return (
-      <label style={containerStyles} className={className}>
-        <span style={{ position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
+      <label className={containerClasses} style={style}>
+        <div className="checkbox__input-wrapper">
           <input
-            ref={ref}
+            ref={combinedRef}
             type="checkbox"
-            style={inputStyles}
+            className="checkbox__input"
             disabled={disabled}
-            checked={isChecked}
-            onChange={handleChange}
+            checked={checked}
+            defaultChecked={defaultChecked}
             {...props}
           />
-          {/* Checkmark for checked state */}
-          {isChecked && !isIndeterminate && (
-            <span style={checkmarkStyles}>
-              <svg
-                width={s.icon}
-                height={s.icon}
-                viewBox="0 0 24 24"
-                fill="none"
-                xmlns="http://www.w3.org/2000/svg"
-              >
+
+          {/* Checkmark Icon (shown when checked) */}
+          <span className="checkbox__icon">
+            {indeterminate ? (
+              <div className="checkbox__indeterminate-line" />
+            ) : (
+              <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path
                   d="M5 13l4 4L19 7"
-                  stroke={getColor('background', 'primary')}
-                  strokeWidth="2"
                   strokeLinecap="round"
                   strokeLinejoin="round"
                 />
               </svg>
-            </span>
-          )}
-          {/* Indeterminate line */}
-          {isIndeterminate && (
-            <span style={indeterminateLineStyles} />
-          )}
-        </span>
+            )}
+          </span>
+        </div>
+
         {label && (
-          <span style={labelStyles}>{label}</span>
+          <span className="checkbox__label">{label}</span>
         )}
-        <style>
-          {`
-            input[type="checkbox"]:focus {
-              outline: 2px solid ${getColor('primary')};
-              outline-offset: 2px;
-            }
-            input[type="checkbox"]:hover:not(:disabled) {
-              border-color: ${getColor('primary')};
-            }
-            input[type="checkbox"]:not(:checked):not(:indeterminate) {
-              border-color: ${error ? getColor('error') : getColor('border', 'primary')};
-            }
-          `}
-        </style>
       </label>
     );
   }

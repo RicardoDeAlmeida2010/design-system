@@ -1,0 +1,425 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Introdução/Bem-vindo" />
+
+<div style={{
+  fontFamily: 'var(--font-family-sans)',
+  maxWidth: '1200px',
+  margin: '0 auto',
+  padding: 'var(--space-8)'
+}}>
+  
+  {/* Hero Section */}
+  <div style={{
+    textAlign: 'center',
+    padding: 'var(--space-16) 0',
+    background: 'linear-gradient(135deg, var(--brand-500) 0%, var(--brand-700) 100%)',
+    borderRadius: 'var(--radius-lg)',
+    color: 'white',
+    marginBottom: 'var(--space-12)'
+  }}>
+    <h1 style={{
+      fontSize: 'var(--font-size-4xl)',
+      fontWeight: 'var(--font-weight-bold)',
+      marginBottom: 'var(--space-4)',
+      lineHeight: 'var(--line-height-tight)'
+    }}>
+      Design System
+    </h1>
+    <p style={{
+      fontSize: 'var(--font-size-lg)',
+      opacity: 0.95,
+      maxWidth: '600px',
+      margin: '0 auto var(--space-6)',
+      lineHeight: 'var(--line-height-normal)'
+    }}>
+      Sistema de design completo para construir interfaces consistentes, acessíveis e escaláveis
+    </p>
+    <div style={{ display: 'flex', gap: 'var(--space-4)', justifyContent: 'center', flexWrap: 'wrap' }}>
+      <a 
+        href="?path=/docs/fundamentos-cores--docs"
+        style={{
+          display: 'inline-block',
+          padding: 'var(--space-3) var(--space-6)',
+          background: 'white',
+          color: 'var(--brand-600)',
+          borderRadius: 'var(--radius-md)',
+          fontWeight: 'var(--font-weight-semibold)',
+          textDecoration: 'none',
+          transition: 'transform var(--duration-fast) var(--ease-standard)',
+        }}
+      >
+        Explorar Componentes
+      </a>
+      <a 
+        href="https://github.com/your-org/design-system"
+        style={{
+          display: 'inline-block',
+          padding: 'var(--space-3) var(--space-6)',
+          background: 'rgba(255, 255, 255, 0.2)',
+          color: 'white',
+          border: '2px solid white',
+          borderRadius: 'var(--radius-md)',
+          fontWeight: 'var(--font-weight-semibold)',
+          textDecoration: 'none',
+          transition: 'transform var(--duration-fast) var(--ease-standard)',
+        }}
+      >
+        Ver no GitHub
+      </a>
+    </div>
+  </div>
+
+  {/* Features Grid */}
+  <div style={{
+    display: 'grid',
+    gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+    gap: 'var(--space-6)',
+    marginBottom: 'var(--space-12)'
+  }}>
+    <div style={{
+      padding: 'var(--space-6)',
+      background: 'var(--bg-secondary)',
+      borderRadius: 'var(--radius-lg)',
+      border: '1px solid var(--border-primary)'
+    }}>
+      <div style={{
+        width: '48px',
+        height: '48px',
+        background: 'var(--brand-50)',
+        borderRadius: 'var(--radius-md)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 'var(--space-4)',
+        fontSize: '24px'
+      }}>
+        🎨
+      </div>
+      <h3 style={{
+        fontSize: 'var(--font-size-lg)',
+        fontWeight: 'var(--font-weight-semibold)',
+        marginBottom: 'var(--space-2)',
+        color: 'var(--text-primary)'
+      }}>
+        Tokens de Design
+      </h3>
+      <p style={{
+        color: 'var(--text-secondary)',
+        lineHeight: 'var(--line-height-normal)',
+        fontSize: 'var(--font-size-base)'
+      }}>
+        Cores, tipografia, espaçamento e mais. Todos os tokens fundamentais para construir interfaces consistentes.
+      </p>
+    </div>
+
+    <div style={{
+      padding: 'var(--space-6)',
+      background: 'var(--bg-secondary)',
+      borderRadius: 'var(--radius-lg)',
+      border: '1px solid var(--border-primary)'
+    }}>
+      <div style={{
+        width: '48px',
+        height: '48px',
+        background: 'var(--green-50)',
+        borderRadius: 'var(--radius-md)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 'var(--space-4)',
+        fontSize: '24px'
+      }}>
+        🧩
+      </div>
+      <h3 style={{
+        fontSize: 'var(--font-size-lg)',
+        fontWeight: 'var(--font-weight-semibold)',
+        marginBottom: 'var(--space-2)',
+        color: 'var(--text-primary)'
+      }}>
+        Componentes React
+      </h3>
+      <p style={{
+        color: 'var(--text-secondary)',
+        lineHeight: 'var(--line-height-normal)',
+        fontSize: 'var(--font-size-base)'
+      }}>
+        Biblioteca completa de componentes React reutilizáveis, testados e documentados.
+      </p>
+    </div>
+
+    <div style={{
+      padding: 'var(--space-6)',
+      background: 'var(--bg-secondary)',
+      borderRadius: 'var(--radius-lg)',
+      border: '1px solid var(--border-primary)'
+    }}>
+      <div style={{
+        width: '48px',
+        height: '48px',
+        background: 'var(--yellow-50)',
+        borderRadius: 'var(--radius-md)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 'var(--space-4)',
+        fontSize: '24px'
+      }}>
+        ♿
+      </div>
+      <h3 style={{
+        fontSize: 'var(--font-size-lg)',
+        fontWeight: 'var(--font-weight-semibold)',
+        marginBottom: 'var(--space-2)',
+        color: 'var(--text-primary)'
+      }}>
+        Acessibilidade AAA
+      </h3>
+      <p style={{
+        color: 'var(--text-secondary)',
+        lineHeight: 'var(--line-height-normal)',
+        fontSize: 'var(--font-size-base)'
+      }}>
+        Seguindo WCAG 2.2 nível AAA. Todos os componentes são acessíveis por padrão.
+      </p>
+    </div>
+
+    <div style={{
+      padding: 'var(--space-6)',
+      background: 'var(--bg-secondary)',
+      borderRadius: 'var(--radius-lg)',
+      border: '1px solid var(--border-primary)'
+    }}>
+      <div style={{
+        width: '48px',
+        height: '48px',
+        background: 'var(--red-50)',
+        borderRadius: 'var(--radius-md)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 'var(--space-4)',
+        fontSize: '24px'
+      }}>
+        💱
+      </div>
+      <h3 style={{
+        fontSize: 'var(--font-size-lg)',
+        fontWeight: 'var(--font-weight-semibold)',
+        marginBottom: 'var(--space-2)',
+        color: 'var(--text-primary)'
+      }}>
+        Extensão Fintech
+      </h3>
+      <p style={{
+        color: 'var(--text-secondary)',
+        lineHeight: 'var(--line-height-normal)',
+        fontSize: 'var(--font-size-base)'
+      }}>
+        Componentes especializados para aplicações financeiras e câmbio.
+      </p>
+    </div>
+
+    <div style={{
+      padding: 'var(--space-6)',
+      background: 'var(--bg-secondary)',
+      borderRadius: 'var(--radius-lg)',
+      border: '1px solid var(--border-primary)'
+    }}>
+      <div style={{
+        width: '48px',
+        height: '48px',
+        background: 'var(--brand-50)',
+        borderRadius: 'var(--radius-md)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 'var(--space-4)',
+        fontSize: '24px'
+      }}>
+        📱
+      </div>
+      <h3 style={{
+        fontSize: 'var(--font-size-lg)',
+        fontWeight: 'var(--font-weight-semibold)',
+        marginBottom: 'var(--space-2)',
+        color: 'var(--text-primary)'
+      }}>
+        Multiplataforma
+      </h3>
+      <p style={{
+        color: 'var(--text-secondary)',
+        lineHeight: 'var(--line-height-normal)',
+        fontSize: 'var(--font-size-base)'
+      }}>
+        Funciona perfeitamente em Web, iOS e Android com design adaptativo.
+      </p>
+    </div>
+
+    <div style={{
+      padding: 'var(--space-6)',
+      background: 'var(--bg-secondary)',
+      borderRadius: 'var(--radius-lg)',
+      border: '1px solid var(--border-primary)'
+    }}>
+      <div style={{
+        width: '48px',
+        height: '48px',
+        background: 'var(--green-50)',
+        borderRadius: 'var(--radius-md)',
+        display: 'flex',
+        alignItems: 'center',
+        justifyContent: 'center',
+        marginBottom: 'var(--space-4)',
+        fontSize: '24px'
+      }}>
+        ⚡
+      </div>
+      <h3 style={{
+        fontSize: 'var(--font-size-lg)',
+        fontWeight: 'var(--font-weight-semibold)',
+        marginBottom: 'var(--space-2)',
+        color: 'var(--text-primary)'
+      }}>
+        TypeScript First
+      </h3>
+      <p style={{
+        color: 'var(--text-secondary)',
+        lineHeight: 'var(--line-height-normal)',
+        fontSize: 'var(--font-size-base)'
+      }}>
+        Totalmente tipado com TypeScript para melhor experiência de desenvolvimento.
+      </p>
+    </div>
+  </div>
+
+  {/* Quick Start */}
+  <div style={{
+    background: 'var(--bg-secondary)',
+    borderRadius: 'var(--radius-lg)',
+    padding: 'var(--space-8)',
+    border: '1px solid var(--border-primary)',
+    marginBottom: 'var(--space-12)'
+  }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-bold)',
+      marginBottom: 'var(--space-4)',
+      color: 'var(--text-primary)'
+    }}>
+      🚀 Início Rápido
+    </h2>
+    <p style={{
+      color: 'var(--text-secondary)',
+      marginBottom: 'var(--space-6)',
+      fontSize: 'var(--font-size-base)'
+    }}>
+      Instale o pacote via npm e comece a usar:
+    </p>
+    <div style={{
+      background: 'var(--gray-900)',
+      color: 'var(--gray-100)',
+      padding: 'var(--space-4)',
+      borderRadius: 'var(--radius-md)',
+      fontFamily: 'var(--font-family-mono)',
+      fontSize: 'var(--font-size-sm)',
+      marginBottom: 'var(--space-6)',
+      overflowX: 'auto'
+    }}>
+      <code>npm install @your-org/design-system</code>
+    </div>
+    <div style={{
+      background: 'var(--gray-900)',
+      color: 'var(--gray-100)',
+      padding: 'var(--space-4)',
+      borderRadius: 'var(--radius-md)',
+      fontFamily: 'var(--font-family-mono)',
+      fontSize: 'var(--font-size-sm)',
+      overflowX: 'auto'
+    }}>
+      <pre style={{ margin: 0 }}>{`import { Button } from '@your-org/design-system';
+
+function App() {
+  return (
+    <Button variant="filled" color="primary">
+      Clique aqui
+    </Button>
+  );
+}`}</pre>
+    </div>
+  </div>
+
+  {/* Navigation */}
+  <div>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-bold)',
+      marginBottom: 'var(--space-6)',
+      color: 'var(--text-primary)'
+    }}>
+      📚 Navegação
+    </h2>
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(250px, 1fr))',
+      gap: 'var(--space-4)'
+    }}>
+      <a 
+        href="?path=/docs/fundamentos-cores--docs"
+        style={{
+          padding: 'var(--space-4)',
+          background: 'var(--bg-secondary)',
+          borderRadius: 'var(--radius-md)',
+          border: '1px solid var(--border-primary)',
+          textDecoration: 'none',
+          color: 'var(--text-primary)',
+          transition: 'all var(--duration-fast) var(--ease-standard)',
+          display: 'block'
+        }}
+      >
+        <strong style={{ display: 'block', marginBottom: 'var(--space-1)' }}>Fundamentos</strong>
+        <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)' }}>
+          Cores, tipografia, espaçamento
+        </span>
+      </a>
+      <a 
+        href="?path=/docs/componentes-button--docs"
+        style={{
+          padding: 'var(--space-4)',
+          background: 'var(--bg-secondary)',
+          borderRadius: 'var(--radius-md)',
+          border: '1px solid var(--border-primary)',
+          textDecoration: 'none',
+          color: 'var(--text-primary)',
+          transition: 'all var(--duration-fast) var(--ease-standard)',
+          display: 'block'
+        }}
+      >
+        <strong style={{ display: 'block', marginBottom: 'var(--space-1)' }}>Componentes</strong>
+        <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)' }}>
+          Biblioteca completa de UI
+        </span>
+      </a>
+      <a 
+        href="?path=/docs/fintech-currencyinput--docs"
+        style={{
+          padding: 'var(--space-4)',
+          background: 'var(--bg-secondary)',
+          borderRadius: 'var(--radius-md)',
+          border: '1px solid var(--border-primary)',
+          textDecoration: 'none',
+          color: 'var(--text-primary)',
+          transition: 'all var(--duration-fast) var(--ease-standard)',
+          display: 'block'
+        }}
+      >
+        <strong style={{ display: 'block', marginBottom: 'var(--space-1)' }}>Fintech</strong>
+        <span style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)' }}>
+          Componentes financeiros
+        </span>
+      </a>
+    </div>
+  </div>
+
+</div>

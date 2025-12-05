@@ -1,0 +1,384 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Fundamentos/Sombras e Motion" />
+
+<div style={{ fontFamily: 'var(--font-family-sans)', maxWidth: '1200px', margin: '0 auto', padding: 'var(--space-8)' }}>
+  
+  <h1 style={{
+    fontSize: 'var(--font-size-3xl)',
+    fontWeight: 'var(--font-weight-bold)',
+    marginBottom: 'var(--space-4)',
+    color: 'var(--text-primary)'
+  }}>
+    Sombras e Motion
+  </h1>
+  
+  <p style={{
+    fontSize: 'var(--font-size-lg)',
+    color: 'var(--text-secondary)',
+    marginBottom: 'var(--space-12)',
+    lineHeight: 'var(--line-height-normal)'
+  }}>
+    Sistema de elevação com sombras e animações para criar profundidade e feedback visual.
+  </p>
+
+  {/* Elevation/Shadows */}
+  <div style={{ marginBottom: 'var(--space-12)' }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-6)',
+      color: 'var(--text-primary)'
+    }}>
+      Elevação (Sombras)
+    </h2>
+    
+    <p style={{
+      fontSize: 'var(--font-size-base)',
+      color: 'var(--text-secondary)',
+      marginBottom: 'var(--space-6)',
+      lineHeight: 'var(--line-height-normal)'
+    }}>
+      Use sombras para criar hierarquia visual e indicar elementos interativos.
+    </p>
+
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(200px, 1fr))',
+      gap: 'var(--space-6)',
+      marginBottom: 'var(--space-8)'
+    }}>
+      {[
+        { level: 0, name: 'elevation-0', desc: 'Sem elevação' },
+        { level: 1, name: 'elevation-1', desc: 'Hover sutil' },
+        { level: 2, name: 'elevation-2', desc: 'Cards padrão' },
+        { level: 3, name: 'elevation-3', desc: 'Dropdowns' },
+        { level: 4, name: 'elevation-4', desc: 'Modais' },
+        { level: 5, name: 'elevation-5', desc: 'Popovers' }
+      ].map((item) => (
+        <div
+          key={item.level}
+          style={{
+            padding: 'var(--space-6)',
+            background: 'white',
+            borderRadius: 'var(--radius-md)',
+            boxShadow: `var(--${item.name})`,
+            textAlign: 'center',
+            transition: 'all var(--duration-moderate) var(--ease-standard)'
+          }}
+        >
+          <div style={{
+            fontSize: 'var(--font-size-2xl)',
+            fontWeight: 'var(--font-weight-bold)',
+            color: 'var(--text-primary)',
+            marginBottom: 'var(--space-2)'
+          }}>
+            {item.level}
+          </div>
+          <div style={{
+            fontSize: 'var(--font-size-sm)',
+            color: 'var(--text-secondary)',
+            marginBottom: 'var(--space-1)'
+          }}>
+            {item.desc}
+          </div>
+          <code style={{
+            fontSize: 'var(--font-size-xs)',
+            color: 'var(--text-tertiary)'
+          }}>
+            --{item.name}
+          </code>
+        </div>
+      ))}
+    </div>
+
+    <div style={{
+      padding: 'var(--space-6)',
+      background: 'var(--bg-secondary)',
+      borderRadius: 'var(--radius-lg)',
+      border: '1px solid var(--border-primary)'
+    }}>
+      <h3 style={{
+        fontSize: 'var(--font-size-lg)',
+        fontWeight: 'var(--font-weight-semibold)',
+        marginBottom: 'var(--space-4)',
+        color: 'var(--text-primary)'
+      }}>
+        Diretrizes de Uso
+      </h3>
+      <ul style={{
+        color: 'var(--text-secondary)',
+        paddingLeft: 'var(--space-6)',
+        lineHeight: 'var(--line-height-relaxed)',
+        margin: 0
+      }}>
+        <li><strong>Elevation 0:</strong> Elementos planos, sem profundidade</li>
+        <li><strong>Elevation 1:</strong> Hover states, feedback sutil</li>
+        <li><strong>Elevation 2:</strong> Cards, containers elevados</li>
+        <li><strong>Elevation 3:</strong> Dropdowns, menus contextuais</li>
+        <li><strong>Elevation 4:</strong> Modais, dialogs</li>
+        <li><strong>Elevation 5:</strong> Tooltips, popovers, elementos flutuantes</li>
+      </ul>
+    </div>
+  </div>
+
+  {/* Border Radius */}
+  <div style={{ marginBottom: 'var(--space-12)' }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-6)',
+      color: 'var(--text-primary)'
+    }}>
+      Border Radius
+    </h2>
+    
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(150px, 1fr))',
+      gap: 'var(--space-4)'
+    }}>
+      {[
+        { name: 'radius-sm', value: '4px' },
+        { name: 'radius-md', value: '8px' },
+        { name: 'radius-lg', value: '12px' },
+        { name: 'radius-xl', value: '16px' },
+        { name: 'radius-full', value: '9999px' }
+      ].map((item) => (
+        <div
+          key={item.name}
+          style={{
+            padding: 'var(--space-4)',
+            background: 'var(--bg-secondary)',
+            borderRadius: 'var(--radius-md)',
+            border: '1px solid var(--border-primary)',
+            textAlign: 'center'
+          }}
+        >
+          <div style={{
+            width: '80px',
+            height: '80px',
+            background: 'var(--brand-500)',
+            borderRadius: `var(--${item.name})`,
+            margin: '0 auto var(--space-3)'
+          }} />
+          <code style={{
+            fontSize: 'var(--font-size-xs)',
+            color: 'var(--text-secondary)',
+            display: 'block',
+            marginBottom: 'var(--space-1)'
+          }}>
+            --{item.name}
+          </code>
+          <span style={{
+            fontSize: 'var(--font-size-xs)',
+            color: 'var(--text-tertiary)'
+          }}>
+            {item.value}
+          </span>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* Motion System */}
+  <div style={{ marginBottom: 'var(--space-12)' }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-6)',
+      color: 'var(--text-primary)'
+    }}>
+      Sistema de Motion
+    </h2>
+    
+    <p style={{
+      fontSize: 'var(--font-size-base)',
+      color: 'var(--text-secondary)',
+      marginBottom: 'var(--space-6)',
+      lineHeight: 'var(--line-height-normal)'
+    }}>
+      Animações consistentes para feedback visual e transições suaves.
+    </p>
+
+    <h3 style={{
+      fontSize: 'var(--font-size-lg)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-4)',
+      color: 'var(--text-primary)'
+    }}>
+      Durações
+    </h3>
+    
+    <div style={{
+      padding: 'var(--space-6)',
+      background: 'var(--bg-secondary)',
+      borderRadius: 'var(--radius-lg)',
+      border: '1px solid var(--border-primary)',
+      marginBottom: 'var(--space-8)'
+    }}>
+      {[
+        { name: 'duration-instant', value: '100ms', use: 'Micro-interações (hover, focus)' },
+        { name: 'duration-fast', value: '150ms', use: 'Feedback rápido' },
+        { name: 'duration-base', value: '200ms', use: 'Transições simples' },
+        { name: 'duration-moderate', value: '300ms', use: 'Transições padrão' },
+        { name: 'duration-slow', value: '500ms', use: 'Transições complexas' },
+        { name: 'duration-max', value: '1000ms', use: 'Animações longas (máximo)' }
+      ].map((item, index) => (
+        <div
+          key={item.name}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 'var(--space-4)',
+            marginBottom: index < 5 ? 'var(--space-4)' : 0,
+            paddingBottom: index < 5 ? 'var(--space-4)' : 0,
+            borderBottom: index < 5 ? '1px solid var(--border-primary)' : 'none'
+          }}
+        >
+          <div style={{ flex: '0 0 150px' }}>
+            <code style={{
+              fontSize: 'var(--font-size-sm)',
+              fontWeight: 'var(--font-weight-medium)',
+              color: 'var(--text-primary)'
+            }}>
+              --{item.name}
+            </code>
+          </div>
+          <div style={{ flex: '0 0 80px' }}>
+            <span style={{
+              fontSize: 'var(--font-size-sm)',
+              color: 'var(--text-secondary)'
+            }}>
+              {item.value}
+            </span>
+          </div>
+          <div style={{ flex: '1' }}>
+            <span style={{
+              fontSize: 'var(--font-size-sm)',
+              color: 'var(--text-tertiary)'
+            }}>
+              {item.use}
+            </span>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    <h3 style={{
+      fontSize: 'var(--font-size-lg)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-4)',
+      color: 'var(--text-primary)'
+    }}>
+      Easing Functions
+    </h3>
+    
+    <div style={{
+      padding: 'var(--space-6)',
+      background: 'var(--bg-secondary)',
+      borderRadius: 'var(--radius-lg)',
+      border: '1px solid var(--border-primary)'
+    }}>
+      {[
+        { name: 'ease-standard', value: 'cubic-bezier(0.4, 0.0, 0.2, 1)', use: 'Padrão para a maioria das transições' },
+        { name: 'ease-decelerate', value: 'cubic-bezier(0.0, 0.0, 0.2, 1)', use: 'Elementos entrando na tela' },
+        { name: 'ease-accelerate', value: 'cubic-bezier(0.4, 0.0, 1, 1)', use: 'Elementos saindo da tela' },
+        { name: 'ease-sharp', value: 'cubic-bezier(0.4, 0.0, 0.6, 1)', use: 'Mudanças rápidas e decisivas' }
+      ].map((item, index) => (
+        <div
+          key={item.name}
+          style={{
+            marginBottom: index < 3 ? 'var(--space-4)' : 0,
+            paddingBottom: index < 3 ? 'var(--space-4)' : 0,
+            borderBottom: index < 3 ? '1px solid var(--border-primary)' : 'none'
+          }}
+        >
+          <div style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 'var(--space-3)',
+            marginBottom: 'var(--space-2)'
+          }}>
+            <code style={{
+              fontSize: 'var(--font-size-sm)',
+              fontWeight: 'var(--font-weight-medium)',
+              color: 'var(--text-primary)'
+            }}>
+              --{item.name}
+            </code>
+            <code style={{
+              fontSize: 'var(--font-size-xs)',
+              color: 'var(--text-tertiary)',
+              fontFamily: 'var(--font-family-mono)'
+            }}>
+              {item.value}
+            </code>
+          </div>
+          <p style={{
+            fontSize: 'var(--font-size-sm)',
+            color: 'var(--text-secondary)',
+            margin: 0
+          }}>
+            {item.use}
+          </p>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* Example */}
+  <div style={{
+    padding: 'var(--space-8)',
+    background: 'var(--bg-secondary)',
+    borderRadius: 'var(--radius-lg)',
+    border: '2px solid var(--border-primary)'
+  }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-bold)',
+      marginBottom: 'var(--space-6)',
+      color: 'var(--text-primary)'
+    }}>
+      Exemplo de Código
+    </h2>
+    <div style={{
+      background: 'var(--gray-900)',
+      color: 'var(--gray-100)',
+      padding: 'var(--space-4)',
+      borderRadius: 'var(--radius-md)',
+      fontFamily: 'var(--font-family-mono)',
+      fontSize: 'var(--font-size-sm)',
+      overflowX: 'auto'
+    }}>
+      <pre style={{ margin: 0 }}>{`.button {
+  border-radius: var(--radius-md);
+  box-shadow: var(--elevation-1);
+  transition: all var(--duration-base) var(--ease-standard);
+}
+
+.button:hover {
+  box-shadow: var(--elevation-2);
+  transform: translateY(-2px);
+}
+
+.modal {
+  border-radius: var(--radius-lg);
+  box-shadow: var(--elevation-4);
+  animation: fadeIn var(--duration-moderate) var(--ease-decelerate);
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}`}</pre>
+    </div>
+  </div>
+
+</div>

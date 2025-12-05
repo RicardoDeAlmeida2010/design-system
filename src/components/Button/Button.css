@@ -1,89 +1,108 @@
+/**
+ * Button Component
+ * Using Design System tokens from DS_banco00.md
+ */
+
 .design-system-button {
   position: relative;
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  font-family: var(--sys-font-family);
+  font-family: var(--font-family-sans);
   text-decoration: none;
   outline: none;
   user-select: none;
   white-space: nowrap;
   overflow: hidden;
-  border-radius: 8px;
-  /* Using a fixed value or could be var(--sys-spacing-100) if mapped */
+  border-radius: var(--radius-md);
   border: 1px solid transparent;
   cursor: pointer;
-  transition: all var(--sys-motion-duration-fast) var(--sys-motion-easing-standard);
-  font-weight: 500;
+  transition: all var(--duration-fast) var(--ease-standard);
+  font-weight: var(--font-weight-medium);
 }
 
 /* Sizes */
 .design-system-button--sm {
-  padding: 4px 12px;
-  font-size: var(--sys-type-caption-size);
+  padding: var(--space-1) var(--space-3);
+  font-size: var(--font-size-sm);
   min-height: 32px;
 }
 
 .design-system-button--md {
-  padding: 8px 16px;
-  font-size: var(--sys-type-body-medium-size);
+  padding: var(--space-2) var(--space-4);
+  font-size: var(--font-size-base);
   min-height: 40px;
 }
 
 .design-system-button--lg {
-  padding: 12px 24px;
-  font-size: var(--sys-type-body-large-size);
+  padding: var(--space-3) var(--space-6);
+  font-size: var(--font-size-md);
   min-height: 48px;
 }
 
 /* Variants */
 .design-system-button--primary {
-  background-color: var(--sys-color-action-brand);
-  color: #FFFFFF;
-  /* Always white on brand color */
+  background-color: var(--interactive-primary);
+  color: var(--text-inverse);
 }
 
 .design-system-button--primary:hover:not(.design-system-button--disabled) {
-  filter: brightness(1.1);
+  background-color: var(--interactive-primary-hover);
   transform: translateY(-1px);
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+  box-shadow: var(--elevation-2);
 }
 
 .design-system-button--primary:active:not(.design-system-button--disabled) {
-  filter: brightness(0.9);
+  background-color: var(--interactive-primary-active);
   transform: translateY(0);
+  box-shadow: var(--elevation-1);
 }
 
 .design-system-button--secondary {
-  background-color: var(--sys-color-bg-surface);
-  color: var(--sys-color-content-primary);
-  border-color: var(--sys-color-content-secondary);
+  background-color: var(--interactive-secondary);
+  color: var(--text-primary);
+  border-color: var(--border-primary);
 }
 
 .design-system-button--secondary:hover:not(.design-system-button--disabled) {
-  background-color: var(--sys-color-bg-page);
+  background-color: var(--interactive-secondary-hover);
+  box-shadow: var(--elevation-1);
+}
+
+.design-system-button--secondary:active:not(.design-system-button--disabled) {
+  background-color: var(--interactive-secondary-active);
 }
 
 .design-system-button--ghost {
   background-color: transparent;
-  color: var(--sys-color-action-brand);
+  color: var(--interactive-primary);
 }
 
 .design-system-button--ghost:hover:not(.design-system-button--disabled) {
-  background-color: rgba(0, 102, 204, 0.1);
-  /* Brand color with opacity */
+  background-color: var(--brand-50);
+}
+
+.design-system-button--ghost:active:not(.design-system-button--disabled) {
+  background-color: var(--brand-100);
 }
 
 .design-system-button--error {
-  background-color: var(--sys-color-status-error);
-  color: #FFFFFF;
+  background-color: var(--status-error);
+  color: var(--text-inverse);
+}
+
+.design-system-button--error:hover:not(.design-system-button--disabled) {
+  background-color: var(--red-600);
+  box-shadow: var(--elevation-2);
 }
 
 /* States */
 .design-system-button--disabled {
-  opacity: 0.5;
+  opacity: 0.6;
   cursor: not-allowed;
   pointer-events: none;
+  background-color: var(--interactive-primary-disabled);
+  color: var(--text-disabled);
 }
 
 .design-system-button--loading {
@@ -98,13 +117,13 @@
 .design-system-button__loader {
   display: inline-flex;
   align-items: center;
-  margin-right: 8px;
+  margin-right: var(--space-2);
 }
 
 .design-system-button__spinner {
   width: 1em;
   height: 1em;
-  animation: spin 1s linear infinite;
+  animation: spin var(--duration-max) linear infinite;
 }
 
 @keyframes spin {
@@ -118,6 +137,6 @@
 }
 
 .design-system-button:focus-visible {
-  outline: 2px solid var(--sys-color-action-brand);
+  outline: 2px solid var(--border-focus);
   outline-offset: 2px;
 }

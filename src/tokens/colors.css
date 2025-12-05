@@ -1,0 +1,159 @@
+/**
+ * Design System - Color Tokens
+ * Based on DS_banco00.md specifications
+ */
+
+:root {
+  /* ===== PRIMITIVES - Grayscale ===== */
+  --gray-0: #FFFFFF;
+  --gray-50: #FAFAFA;
+  --gray-100: #F5F5F5;
+  --gray-200: #EEEEEE;
+  --gray-300: #E0E0E0;
+  --gray-400: #BDBDBD;
+  --gray-500: #9E9E9E;
+  --gray-600: #757575;
+  --gray-700: #616161;
+  --gray-800: #424242;
+  --gray-900: #212121;
+  --gray-1000: #000000;
+
+  /* ===== PRIMITIVES - Brand ===== */
+  --brand-50: #E3F2FD;
+  --brand-100: #BBDEFB;
+  --brand-200: #90CAF9;
+  --brand-300: #64B5F6;
+  --brand-400: #42A5F5;
+  --brand-500: #2196F3;
+  --brand-600: #1E88E5;
+  --brand-700: #1976D2;
+  --brand-800: #1565C0;
+  --brand-900: #0D47A1;
+
+  /* ===== PRIMITIVES - Success/Green ===== */
+  --green-50: #E8F5E9;
+  --green-100: #C8E6C9;
+  --green-200: #A5D6A7;
+  --green-300: #81C784;
+  --green-400: #66BB6A;
+  --green-500: #4CAF50;
+  --green-600: #43A047;
+  --green-700: #388E3C;
+  --green-800: #2E7D32;
+  --green-900: #1B5E20;
+
+  /* ===== PRIMITIVES - Error/Red ===== */
+  --red-50: #FFEBEE;
+  --red-100: #FFCDD2;
+  --red-200: #EF9A9A;
+  --red-300: #E57373;
+  --red-400: #EF5350;
+  --red-500: #F44336;
+  --red-600: #E53935;
+  --red-700: #D32F2F;
+  --red-800: #C62828;
+  --red-900: #B71C1C;
+
+  /* ===== PRIMITIVES - Warning/Yellow ===== */
+  --yellow-50: #FFFDE7;
+  --yellow-100: #FFF9C4;
+  --yellow-200: #FFF59D;
+  --yellow-300: #FFF176;
+  --yellow-400: #FFEE58;
+  --yellow-500: #FFEB3B;
+  --yellow-600: #FDD835;
+  --yellow-700: #FBC02D;
+  --yellow-800: #F9A825;
+  --yellow-900: #F57F17;
+
+  /* ===== SEMANTIC TOKENS - Text ===== */
+  --text-primary: var(--gray-900);
+  --text-secondary: var(--gray-700);
+  --text-tertiary: var(--gray-600);
+  --text-disabled: var(--gray-400);
+  --text-inverse: var(--gray-0);
+  --text-link: var(--brand-600);
+  --text-link-hover: var(--brand-700);
+
+  /* ===== SEMANTIC TOKENS - Background ===== */
+  --bg-primary: var(--gray-0);
+  --bg-secondary: var(--gray-50);
+  --bg-tertiary: var(--gray-100);
+  --bg-elevated: var(--gray-0);
+  --bg-overlay: rgba(0, 0, 0, 0.5);
+  --bg-disabled: var(--gray-200);
+
+  /* ===== SEMANTIC TOKENS - Border ===== */
+  --border-primary: var(--gray-300);
+  --border-secondary: var(--gray-200);
+  --border-focus: var(--brand-500);
+  --border-error: var(--red-500);
+  --border-success: var(--green-500);
+
+  /* ===== SEMANTIC TOKENS - Interactive ===== */
+  --interactive-primary: var(--brand-500);
+  --interactive-primary-hover: var(--brand-600);
+  --interactive-primary-active: var(--brand-700);
+  --interactive-primary-disabled: var(--gray-300);
+
+  --interactive-secondary: var(--gray-100);
+  --interactive-secondary-hover: var(--gray-200);
+  --interactive-secondary-active: var(--gray-300);
+
+  /* ===== SEMANTIC TOKENS - Status ===== */
+  --status-success: var(--green-500);
+  --status-success-bg: var(--green-50);
+  --status-success-border: var(--green-200);
+
+  --status-error: var(--red-500);
+  --status-error-bg: var(--red-50);
+  --status-error-border: var(--red-200);
+
+  --status-warning: var(--yellow-700);
+  --status-warning-bg: var(--yellow-50);
+  --status-warning-border: var(--yellow-200);
+
+  --status-info: var(--brand-500);
+  --status-info-bg: var(--brand-50);
+  --status-info-border: var(--brand-200);
+
+  /* ===== FINTECH EXTENSION - Rate Variation ===== */
+  --rate-positive-50: #E8F5E9;
+  --rate-positive-500: #4CAF50;
+  --rate-positive-900: #1B5E20;
+
+  --rate-negative-50: #FFEBEE;
+  --rate-negative-500: #F44336;
+  --rate-negative-900: #B71C1C;
+
+  /* ===== FINTECH EXTENSION - Transaction States ===== */
+  --transaction-pending: #FFC107;
+  --transaction-processing: #2196F3;
+  --transaction-completed: #4CAF50;
+  --transaction-failed: #F44336;
+  --transaction-cancelled: #9E9E9E;
+}
+
+/* ===== DARK MODE OVERRIDES ===== */
+@media (prefers-color-scheme: dark) {
+  :root {
+    --text-primary: var(--gray-0);
+    --text-secondary: var(--gray-300);
+    --text-tertiary: var(--gray-400);
+    --text-disabled: var(--gray-600);
+    --text-inverse: var(--gray-900);
+
+    --bg-primary: var(--gray-900);
+    --bg-secondary: var(--gray-800);
+    --bg-tertiary: var(--gray-700);
+    --bg-elevated: var(--gray-800);
+    --bg-overlay: rgba(0, 0, 0, 0.7);
+
+    --border-primary: var(--gray-700);
+    --border-secondary: var(--gray-800);
+
+    --interactive-secondary: var(--gray-800);
+    --interactive-secondary-hover: var(--gray-700);
+    --interactive-secondary-active: var(--gray-600);
+  }
+}

@@ -1,0 +1,132 @@
+/* Welcome Component Styles */
+.welcome {
+    padding: var(--space-8);
+    font-family: var(--font-family-sans);
+    background-color: var(--bg-secondary);
+    min-height: 100vh;
+    color: var(--text-primary);
+}
+
+.welcome__container {
+    max-width: 1200px;
+    margin: 0 auto;
+    text-align: center;
+}
+
+/* Hero Section */
+.welcome__title {
+    font-size: var(--font-size-4xl);
+    font-weight: var(--font-weight-bold);
+    margin-bottom: var(--space-4);
+    background: linear-gradient(135deg, var(--brand-500) 0%, var(--brand-700) 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.welcome__subtitle {
+    font-size: var(--font-size-xl);
+    color: var(--text-secondary);
+    margin-bottom: var(--space-12);
+    max-width: 600px;
+    margin-left: auto;
+    margin-right: auto;
+    line-height: var(--line-height-relaxed);
+}
+
+/* Cards Grid */
+.welcome__grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: var(--space-8);
+    margin-top: var(--space-12);
+}
+
+.welcome__card {
+    background-color: var(--bg-primary);
+    padding: var(--space-8);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--elevation-1);
+    border: 1px solid var(--border-secondary);
+    transition: transform var(--duration-fast) var(--ease-standard),
+        box-shadow var(--duration-fast) var(--ease-standard);
+}
+
+.welcome__card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--elevation-3);
+}
+
+.welcome__card-title {
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-4);
+    color: var(--text-primary);
+    font-weight: var(--font-weight-semibold);
+}
+
+.welcome__card-text {
+    color: var(--text-secondary);
+    line-height: var(--line-height-normal);
+}
+
+/* CTA Section */
+.welcome__cta {
+    margin-top: var(--space-12);
+    padding: var(--space-8);
+    background-color: var(--bg-primary);
+    border-radius: var(--radius-lg);
+    box-shadow: var(--elevation-1);
+    border: 1px solid var(--border-secondary);
+}
+
+.welcome__cta-title {
+    font-size: var(--font-size-3xl);
+    margin-bottom: var(--space-4);
+    color: var(--text-primary);
+    font-weight: var(--font-weight-bold);
+}
+
+.welcome__cta-text {
+    color: var(--text-secondary);
+    margin-bottom: var(--space-6);
+}
+
+.welcome__actions {
+    display: flex;
+    gap: var(--space-4);
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Buttons */
+.welcome__button {
+    display: inline-block;
+    padding: var(--space-3) var(--space-6);
+    border-radius: var(--radius-md);
+    text-decoration: none;
+    font-weight: var(--font-weight-medium);
+    transition: all var(--duration-fast) var(--ease-standard);
+    font-size: var(--font-size-base);
+}
+
+.welcome__button--primary {
+    background-color: var(--brand-500);
+    color: var(--text-inverse);
+    box-shadow: var(--elevation-1);
+}
+
+.welcome__button--primary:hover {
+    background-color: var(--brand-600);
+    box-shadow: var(--elevation-2);
+}
+
+.welcome__button--secondary {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+    border: 1px solid var(--border-secondary);
+}
+
+.welcome__button--secondary:hover {
+    background-color: var(--bg-tertiary);
+    border-color: var(--border-primary);
+}

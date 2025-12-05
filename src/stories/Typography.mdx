@@ -1,57 +1,408 @@
 import { Meta, Typeset } from '@storybook/blocks';
 
-<Meta title="Design System/Typography" />
+<Meta title="Fundamentos/Tipografia" />
 
-# Tipografia (Enterprise 3.0)
+<div style={{ fontFamily: 'var(--font-family-sans)', maxWidth: '1200px', margin: '0 auto', padding: 'var(--space-8)' }}>
+  
+  <h1 style={{
+    fontSize: 'var(--font-size-3xl)',
+    fontWeight: 'var(--font-weight-bold)',
+    marginBottom: 'var(--space-4)',
+    color: 'var(--text-primary)'
+  }}>
+    Tipografia
+  </h1>
+  
+  <p style={{
+    fontSize: 'var(--font-size-lg)',
+    color: 'var(--text-secondary)',
+    marginBottom: 'var(--space-12)',
+    lineHeight: 'var(--line-height-normal)'
+  }}>
+    Sistema tipográfico baseado na escala Major Third (1.250) para hierarquia visual clara e legibilidade.
+  </p>
 
-Escala tipográfica fluida utilizando **Inter** (Web/Android) e **SF Pro** (iOS).
+  {/* Font Families */}
+  <div style={{ marginBottom: 'var(--space-12)' }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-6)',
+      color: 'var(--text-primary)'
+    }}>
+      Famílias de Fonte
+    </h2>
+    
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+      gap: 'var(--space-6)',
+      marginBottom: 'var(--space-8)'
+    }}>
+      <div style={{
+        padding: 'var(--space-6)',
+        background: 'var(--bg-secondary)',
+        borderRadius: 'var(--radius-lg)',
+        border: '1px solid var(--border-primary)'
+      }}>
+        <h3 style={{
+          fontSize: 'var(--font-size-md)',
+          fontWeight: 'var(--font-weight-semibold)',
+          marginBottom: 'var(--space-3)',
+          color: 'var(--text-primary)'
+        }}>
+          Sans Serif
+        </h3>
+        <p style={{
+          fontFamily: 'var(--font-family-sans)',
+          fontSize: 'var(--font-size-xl)',
+          color: 'var(--text-primary)',
+          marginBottom: 'var(--space-2)'
+        }}>
+          The quick brown fox jumps over the lazy dog
+        </p>
+        <code style={{
+          fontSize: 'var(--font-size-sm)',
+          color: 'var(--text-secondary)',
+          fontFamily: 'var(--font-family-mono)'
+        }}>
+          --font-family-sans
+        </code>
+      </div>
 
-**Font Family:** `Inter, system-ui, sans-serif`
+      <div style={{
+        padding: 'var(--space-6)',
+        background: 'var(--bg-secondary)',
+        borderRadius: 'var(--radius-lg)',
+        border: '1px solid var(--border-primary)'
+      }}>
+        <h3 style={{
+          fontSize: 'var(--font-size-md)',
+          fontWeight: 'var(--font-weight-semibold)',
+          marginBottom: 'var(--space-3)',
+          color: 'var(--text-primary)'
+        }}>
+          Monospace
+        </h3>
+        <p style={{
+          fontFamily: 'var(--font-family-mono)',
+          fontSize: 'var(--font-size-xl)',
+          color: 'var(--text-primary)',
+          marginBottom: 'var(--space-2)'
+        }}>
+          The quick brown fox jumps over the lazy dog
+        </p>
+        <code style={{
+          fontSize: 'var(--font-size-sm)',
+          color: 'var(--text-secondary)',
+          fontFamily: 'var(--font-family-mono)'
+        }}>
+          --font-family-mono
+        </code>
+      </div>
+    </div>
+  </div>
 
-## Display & Headings
-<Typeset
-  fontSizes={[
-    Number('48'),
-    Number('32'),
-  ]}
-  fontWeight={700}
-  sampleText="Banking Enterprise 3.0"
-  fontFamily="Inter, system-ui, sans-serif"
-/>
+  {/* Font Scale */}
+  <div style={{ marginBottom: 'var(--space-12)' }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-6)',
+      color: 'var(--text-primary)'
+    }}>
+      Escala de Tamanhos (Major Third - 1.250)
+    </h2>
+    
+    <div style={{ marginBottom: 'var(--space-8)' }}>
+      <div style={{
+        padding: 'var(--space-6)',
+        background: 'var(--bg-secondary)',
+        borderRadius: 'var(--radius-lg)',
+        border: '1px solid var(--border-primary)'
+      }}>
+        <div style={{ marginBottom: 'var(--space-4)' }}>
+          <p style={{ fontSize: 'var(--font-size-4xl)', color: 'var(--text-primary)', margin: '0 0 var(--space-2) 0' }}>
+            4XL - Display
+          </p>
+          <code style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)' }}>
+            --font-size-4xl: 3.815rem (61.04px)
+          </code>
+        </div>
 
-| Token | Size | Line Height | Weight |
-| :--- | :--- | :--- | :--- |
-| `sys.type.display.large` | 48px | 120% | Bold (700) |
-| `sys.type.heading.medium` | 32px | 130% | SemiBold (600) |
+        <div style={{ marginBottom: 'var(--space-4)' }}>
+          <p style={{ fontSize: 'var(--font-size-3xl)', color: 'var(--text-primary)', margin: '0 0 var(--space-2) 0' }}>
+            3XL - Hero
+          </p>
+          <code style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)' }}>
+            --font-size-3xl: 3.052rem (48.83px)
+          </code>
+        </div>
 
-## Body
-<Typeset
-  fontSizes={[
-    Number('18'),
-    Number('16'),
-    Number('14'),
-  ]}
-  fontWeight={400}
-  sampleText="The quick brown fox jumps over the lazy dog."
-  fontFamily="Inter, system-ui, sans-serif"
-/>
+        <div style={{ marginBottom: 'var(--space-4)' }}>
+          <p style={{ fontSize: 'var(--font-size-2xl)', color: 'var(--text-primary)', margin: '0 0 var(--space-2) 0' }}>
+            2XL - Heading 1
+          </p>
+          <code style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)' }}>
+            --font-size-2xl: 2.441rem (39.06px)
+          </code>
+        </div>
 
-| Token | Size | Line Height | Weight |
-| :--- | :--- | :--- | :--- |
-| `sys.type.body.large` | 18px | 150% | Regular (400) |
-| `sys.type.body.medium` | 16px | 150% | Regular (400) |
-| `sys.type.body.small` | 14px | 150% | Regular (400) |
+        <div style={{ marginBottom: 'var(--space-4)' }}>
+          <p style={{ fontSize: 'var(--font-size-xl)', color: 'var(--text-primary)', margin: '0 0 var(--space-2) 0' }}>
+            XL - Heading 2
+          </p>
+          <code style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)' }}>
+            --font-size-xl: 1.953rem (31.25px)
+          </code>
+        </div>
 
-## Caption
-<Typeset
-  fontSizes={[
-    Number('12'),
-  ]}
-  fontWeight={500}
-  sampleText="Legal disclaimer text goes here."
-  fontFamily="Inter, system-ui, sans-serif"
-/>
+        <div style={{ marginBottom: 'var(--space-4)' }}>
+          <p style={{ fontSize: 'var(--font-size-lg)', color: 'var(--text-primary)', margin: '0 0 var(--space-2) 0' }}>
+            LG - Heading 3
+          </p>
+          <code style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)' }}>
+            --font-size-lg: 1.563rem (25px)
+          </code>
+        </div>
 
-| Token | Size | Line Height | Weight |
-| :--- | :--- | :--- | :--- |
-| `sys.type.caption` | 12px | 150% | Medium (500) |
+        <div style={{ marginBottom: 'var(--space-4)' }}>
+          <p style={{ fontSize: 'var(--font-size-md)', color: 'var(--text-primary)', margin: '0 0 var(--space-2) 0' }}>
+            MD - Heading 4
+          </p>
+          <code style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)' }}>
+            --font-size-md: 1.25rem (20px)
+          </code>
+        </div>
+
+        <div style={{ marginBottom: 'var(--space-4)' }}>
+          <p style={{ fontSize: 'var(--font-size-base)', color: 'var(--text-primary)', margin: '0 0 var(--space-2) 0' }}>
+            Base - Body Text
+          </p>
+          <code style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)' }}>
+            --font-size-base: 1rem (16px)
+          </code>
+        </div>
+
+        <div style={{ marginBottom: 'var(--space-4)' }}>
+          <p style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-primary)', margin: '0 0 var(--space-2) 0' }}>
+            SM - Small Text
+          </p>
+          <code style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)' }}>
+            --font-size-sm: 0.8rem (12.8px)
+          </code>
+        </div>
+
+        <div>
+          <p style={{ fontSize: 'var(--font-size-xs)', color: 'var(--text-primary)', margin: '0 0 var(--space-2) 0' }}>
+            XS - Caption
+          </p>
+          <code style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)' }}>
+            --font-size-xs: 0.64rem (10.24px)
+          </code>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {/* Font Weights */}
+  <div style={{ marginBottom: 'var(--space-12)' }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-6)',
+      color: 'var(--text-primary)'
+    }}>
+      Pesos de Fonte
+    </h2>
+    
+    <div style={{
+      padding: 'var(--space-6)',
+      background: 'var(--bg-secondary)',
+      borderRadius: 'var(--radius-lg)',
+      border: '1px solid var(--border-primary)'
+    }}>
+      <div style={{ marginBottom: 'var(--space-4)' }}>
+        <p style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-light)', color: 'var(--text-primary)', margin: '0 0 var(--space-1) 0' }}>
+          Light (300)
+        </p>
+        <code style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)' }}>
+          --font-weight-light
+        </code>
+      </div>
+
+      <div style={{ marginBottom: 'var(--space-4)' }}>
+        <p style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-regular)', color: 'var(--text-primary)', margin: '0 0 var(--space-1) 0' }}>
+          Regular (400)
+        </p>
+        <code style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)' }}>
+          --font-weight-regular
+        </code>
+      </div>
+
+      <div style={{ marginBottom: 'var(--space-4)' }}>
+        <p style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-medium)', color: 'var(--text-primary)', margin: '0 0 var(--space-1) 0' }}>
+          Medium (500)
+        </p>
+        <code style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)' }}>
+          --font-weight-medium
+        </code>
+      </div>
+
+      <div style={{ marginBottom: 'var(--space-4)' }}>
+        <p style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-semibold)', color: 'var(--text-primary)', margin: '0 0 var(--space-1) 0' }}>
+          Semibold (600)
+        </p>
+        <code style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)' }}>
+          --font-weight-semibold
+        </code>
+      </div>
+
+      <div>
+        <p style={{ fontSize: 'var(--font-size-lg)', fontWeight: 'var(--font-weight-bold)', color: 'var(--text-primary)', margin: '0 0 var(--space-1) 0' }}>
+          Bold (700)
+        </p>
+        <code style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-secondary)' }}>
+          --font-weight-bold
+        </code>
+      </div>
+    </div>
+  </div>
+
+  {/* Line Heights */}
+  <div style={{ marginBottom: 'var(--space-12)' }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-6)',
+      color: 'var(--text-primary)'
+    }}>
+      Altura de Linha
+    </h2>
+    
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(300px, 1fr))',
+      gap: 'var(--space-4)'
+    }}>
+      <div style={{
+        padding: 'var(--space-4)',
+        background: 'var(--bg-secondary)',
+        borderRadius: 'var(--radius-md)',
+        border: '1px solid var(--border-primary)'
+      }}>
+        <h3 style={{
+          fontSize: 'var(--font-size-md)',
+          fontWeight: 'var(--font-weight-semibold)',
+          marginBottom: 'var(--space-2)',
+          color: 'var(--text-primary)'
+        }}>
+          Tight (1.25)
+        </h3>
+        <p style={{
+          lineHeight: 'var(--line-height-tight)',
+          color: 'var(--text-secondary)',
+          marginBottom: 'var(--space-2)'
+        }}>
+          Para títulos e headings onde o espaço vertical deve ser minimizado.
+        </p>
+        <code style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-tertiary)' }}>
+          --line-height-tight
+        </code>
+      </div>
+
+      <div style={{
+        padding: 'var(--space-4)',
+        background: 'var(--bg-secondary)',
+        borderRadius: 'var(--radius-md)',
+        border: '1px solid var(--border-primary)'
+      }}>
+        <h3 style={{
+          fontSize: 'var(--font-size-md)',
+          fontWeight: 'var(--font-weight-semibold)',
+          marginBottom: 'var(--space-2)',
+          color: 'var(--text-primary)'
+        }}>
+          Normal (1.5)
+        </h3>
+        <p style={{
+          lineHeight: 'var(--line-height-normal)',
+          color: 'var(--text-secondary)',
+          marginBottom: 'var(--space-2)'
+        }}>
+          Para texto de corpo e parágrafos. Oferece boa legibilidade.
+        </p>
+        <code style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-tertiary)' }}>
+          --line-height-normal
+        </code>
+      </div>
+
+      <div style={{
+        padding: 'var(--space-4)',
+        background: 'var(--bg-secondary)',
+        borderRadius: 'var(--radius-md)',
+        border: '1px solid var(--border-primary)'
+      }}>
+        <h3 style={{
+          fontSize: 'var(--font-size-md)',
+          fontWeight: 'var(--font-weight-semibold)',
+          marginBottom: 'var(--space-2)',
+          color: 'var(--text-primary)'
+        }}>
+          Relaxed (1.75)
+        </h3>
+        <p style={{
+          lineHeight: 'var(--line-height-relaxed)',
+          color: 'var(--text-secondary)',
+          marginBottom: 'var(--space-2)'
+        }}>
+          Para textos longos onde a legibilidade é prioridade.
+        </p>
+        <code style={{ fontSize: 'var(--font-size-sm)', color: 'var(--text-tertiary)' }}>
+          --line-height-relaxed
+        </code>
+      </div>
+    </div>
+  </div>
+
+  {/* Usage Example */}
+  <div style={{
+    padding: 'var(--space-8)',
+    background: 'var(--bg-secondary)',
+    borderRadius: 'var(--radius-lg)',
+    border: '2px solid var(--border-primary)'
+  }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-bold)',
+      marginBottom: 'var(--space-4)',
+      color: 'var(--text-primary)'
+    }}>
+      Exemplo de Uso
+    </h2>
+    <div style={{
+      background: 'var(--gray-900)',
+      color: 'var(--gray-100)',
+      padding: 'var(--space-4)',
+      borderRadius: 'var(--radius-md)',
+      fontFamily: 'var(--font-family-mono)',
+      fontSize: 'var(--font-size-sm)',
+      overflowX: 'auto'
+    }}>
+      <pre style={{ margin: 0 }}>{`.heading {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-2xl);
+  font-weight: var(--font-weight-bold);
+  line-height: var(--line-height-tight);
+}
+
+.body-text {
+  font-family: var(--font-family-sans);
+  font-size: var(--font-size-base);
+  font-weight: var(--font-weight-regular);
+  line-height: var(--line-height-normal);
+}`}</pre>
+    </div>
+  </div>
+
+</div>

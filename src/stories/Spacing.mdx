@@ -1,0 +1,329 @@
+import { Meta } from '@storybook/blocks';
+
+<Meta title="Fundamentos/Espaçamento" />
+
+<div style={{ fontFamily: 'var(--font-family-sans)', maxWidth: '1200px', margin: '0 auto', padding: 'var(--space-8)' }}>
+  
+  <h1 style={{
+    fontSize: 'var(--font-size-3xl)',
+    fontWeight: 'var(--font-weight-bold)',
+    marginBottom: 'var(--space-4)',
+    color: 'var(--text-primary)'
+  }}>
+    Espaçamento
+  </h1>
+  
+  <p style={{
+    fontSize: 'var(--font-size-lg)',
+    color: 'var(--text-secondary)',
+    marginBottom: 'var(--space-12)',
+    lineHeight: 'var(--line-height-normal)'
+  }}>
+    Sistema de espaçamento baseado em múltiplos de 8px para consistência e alinhamento perfeito.
+  </p>
+
+  {/* Spacing Scale */}
+  <div style={{ marginBottom: 'var(--space-12)' }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-6)',
+      color: 'var(--text-primary)'
+    }}>
+      Escala de Espaçamento (Base 8px)
+    </h2>
+    
+    <div style={{
+      background: 'var(--bg-secondary)',
+      borderRadius: 'var(--radius-lg)',
+      padding: 'var(--space-6)',
+      border: '1px solid var(--border-primary)'
+    }}>
+      {[
+        { name: 'space-0', value: '0', px: '0px' },
+        { name: 'space-1', value: '0.25rem', px: '4px' },
+        { name: 'space-2', value: '0.5rem', px: '8px' },
+        { name: 'space-3', value: '0.75rem', px: '12px' },
+        { name: 'space-4', value: '1rem', px: '16px' },
+        { name: 'space-5', value: '1.25rem', px: '20px' },
+        { name: 'space-6', value: '1.5rem', px: '24px' },
+        { name: 'space-8', value: '2rem', px: '32px' },
+        { name: 'space-10', value: '2.5rem', px: '40px' },
+        { name: 'space-12', value: '3rem', px: '48px' },
+        { name: 'space-16', value: '4rem', px: '64px' },
+        { name: 'space-20', value: '5rem', px: '80px' },
+        { name: 'space-24', value: '6rem', px: '96px' }
+      ].map((item, index) => (
+        <div
+          key={index}
+          style={{
+            display: 'flex',
+            alignItems: 'center',
+            gap: 'var(--space-4)',
+            marginBottom: 'var(--space-4)',
+            paddingBottom: 'var(--space-4)',
+            borderBottom: index < 12 ? '1px solid var(--border-primary)' : 'none'
+          }}
+        >
+          <div style={{ flex: '0 0 120px' }}>
+            <code style={{
+              fontSize: 'var(--font-size-sm)',
+              fontWeight: 'var(--font-weight-medium)',
+              color: 'var(--text-primary)'
+            }}>
+              --{item.name}
+            </code>
+          </div>
+          <div style={{ flex: '0 0 100px' }}>
+            <span style={{
+              fontSize: 'var(--font-size-sm)',
+              color: 'var(--text-secondary)'
+            }}>
+              {item.value} ({item.px})
+            </span>
+          </div>
+          <div style={{ flex: '1' }}>
+            <div style={{
+              height: '24px',
+              width: item.px,
+              background: 'var(--brand-500)',
+              borderRadius: 'var(--radius-sm)'
+            }} />
+          </div>
+        </div>
+      ))}
+    </div>
+  </div>
+
+  {/* Usage Guidelines */}
+  <div style={{ marginBottom: 'var(--space-12)' }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-semibold)',
+      marginBottom: 'var(--space-6)',
+      color: 'var(--text-primary)'
+    }}>
+      Diretrizes de Uso
+    </h2>
+    
+    <div style={{
+      display: 'grid',
+      gridTemplateColumns: 'repeat(auto-fit, minmax(280px, 1fr))',
+      gap: 'var(--space-6)'
+    }}>
+      <div style={{
+        padding: 'var(--space-6)',
+        background: 'var(--bg-secondary)',
+        borderRadius: 'var(--radius-lg)',
+        border: '1px solid var(--border-primary)'
+      }}>
+        <h3 style={{
+          fontSize: 'var(--font-size-lg)',
+          fontWeight: 'var(--font-weight-semibold)',
+          marginBottom: 'var(--space-3)',
+          color: 'var(--text-primary)'
+        }}>
+          Micro Espaçamento
+        </h3>
+        <p style={{
+          color: 'var(--text-secondary)',
+          marginBottom: 'var(--space-3)',
+          lineHeight: 'var(--line-height-normal)'
+        }}>
+          Use space-1 a space-3 para:
+        </p>
+        <ul style={{
+          color: 'var(--text-secondary)',
+          paddingLeft: 'var(--space-5)',
+          margin: 0,
+          lineHeight: 'var(--line-height-relaxed)'
+        }}>
+          <li>Espaçamento entre ícone e texto</li>
+          <li>Padding interno de badges</li>
+          <li>Gap entre elementos inline</li>
+        </ul>
+      </div>
+
+      <div style={{
+        padding: 'var(--space-6)',
+        background: 'var(--bg-secondary)',
+        borderRadius: 'var(--radius-lg)',
+        border: '1px solid var(--border-primary)'
+      }}>
+        <h3 style={{
+          fontSize: 'var(--font-size-lg)',
+          fontWeight: 'var(--font-weight-semibold)',
+          marginBottom: 'var(--space-3)',
+          color: 'var(--text-primary)'
+        }}>
+          Componentes
+        </h3>
+        <p style={{
+          color: 'var(--text-secondary)',
+          marginBottom: 'var(--space-3)',
+          lineHeight: 'var(--line-height-normal)'
+        }}>
+          Use space-4 a space-8 para:
+        </p>
+        <ul style={{
+          color: 'var(--text-secondary)',
+          paddingLeft: 'var(--space-5)',
+          margin: 0,
+          lineHeight: 'var(--line-height-relaxed)'
+        }}>
+          <li>Padding de botões e inputs</li>
+          <li>Gap entre form fields</li>
+          <li>Espaçamento em cards</li>
+        </ul>
+      </div>
+
+      <div style={{
+        padding: 'var(--space-6)',
+        background: 'var(--bg-secondary)',
+        borderRadius: 'var(--radius-lg)',
+        border: '1px solid var(--border-primary)'
+      }}>
+        <h3 style={{
+          fontSize: 'var(--font-size-lg)',
+          fontWeight: 'var(--font-weight-semibold)',
+          marginBottom: 'var(--space-3)',
+          color: 'var(--text-primary)'
+        }}>
+          Layout
+        </h3>
+        <p style={{
+          color: 'var(--text-secondary)',
+          marginBottom: 'var(--space-3)',
+          lineHeight: 'var(--line-height-normal)'
+        }}>
+          Use space-12 a space-24 para:
+        </p>
+        <ul style={{
+          color: 'var(--text-secondary)',
+          paddingLeft: 'var(--space-5)',
+          margin: 0,
+          lineHeight: 'var(--line-height-relaxed)'
+        }}>
+          <li>Seções de página</li>
+          <li>Margens de containers</li>
+          <li>Espaçamento vertical entre blocos</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  {/* Examples */}
+  <div style={{
+    padding: 'var(--space-8)',
+    background: 'var(--bg-secondary)',
+    borderRadius: 'var(--radius-lg)',
+    border: '2px solid var(--border-primary)'
+  }}>
+    <h2 style={{
+      fontSize: 'var(--font-size-2xl)',
+      fontWeight: 'var(--font-weight-bold)',
+      marginBottom: 'var(--space-6)',
+      color: 'var(--text-primary)'
+    }}>
+      Exemplos Práticos
+    </h2>
+
+    <div style={{ marginBottom: 'var(--space-8)' }}>
+      <h3 style={{
+        fontSize: 'var(--font-size-lg)',
+        fontWeight: 'var(--font-weight-semibold)',
+        marginBottom: 'var(--space-4)',
+        color: 'var(--text-primary)'
+      }}>
+        Card com Espaçamento Adequado
+      </h3>
+      <div style={{
+        padding: 'var(--space-6)',
+        background: 'white',
+        borderRadius: 'var(--radius-md)',
+        border: '1px solid var(--border-primary)',
+        boxShadow: 'var(--elevation-2)'
+      }}>
+        <h4 style={{
+          fontSize: 'var(--font-size-md)',
+          fontWeight: 'var(--font-weight-semibold)',
+          marginBottom: 'var(--space-2)',
+          color: 'var(--text-primary)'
+        }}>
+          Título do Card
+        </h4>
+        <p style={{
+          fontSize: 'var(--font-size-base)',
+          color: 'var(--text-secondary)',
+          marginBottom: 'var(--space-4)',
+          lineHeight: 'var(--line-height-normal)'
+        }}>
+          Este card usa padding de space-6 (24px) e gap de space-2 e space-4 entre elementos.
+        </p>
+        <div style={{
+          display: 'flex',
+          gap: 'var(--space-3)'
+        }}>
+          <button style={{
+            padding: 'var(--space-2) var(--space-4)',
+            background: 'var(--brand-500)',
+            color: 'white',
+            border: 'none',
+            borderRadius: 'var(--radius-md)',
+            fontSize: 'var(--font-size-sm)',
+            fontWeight: 'var(--font-weight-medium)',
+            cursor: 'pointer'
+          }}>
+            Ação Primária
+          </button>
+          <button style={{
+            padding: 'var(--space-2) var(--space-4)',
+            background: 'transparent',
+            color: 'var(--text-secondary)',
+            border: '1px solid var(--border-primary)',
+            borderRadius: 'var(--radius-md)',
+            fontSize: 'var(--font-size-sm)',
+            fontWeight: 'var(--font-weight-medium)',
+            cursor: 'pointer'
+          }}>
+            Cancelar
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <h3 style={{
+        fontSize: 'var(--font-size-lg)',
+        fontWeight: 'var(--font-weight-semibold)',
+        marginBottom: 'var(--space-4)',
+        color: 'var(--text-primary)'
+      }}>
+        Código CSS
+      </h3>
+      <div style={{
+        background: 'var(--gray-900)',
+        color: 'var(--gray-100)',
+        padding: 'var(--space-4)',
+        borderRadius: 'var(--radius-md)',
+        fontFamily: 'var(--font-family-mono)',
+        fontSize: 'var(--font-size-sm)',
+        overflowX: 'auto'
+      }}>
+        <pre style={{ margin: 0 }}>{`.card {
+  padding: var(--space-6);
+  gap: var(--space-4);
+}
+
+.button {
+  padding: var(--space-2) var(--space-4);
+}
+
+.button-group {
+  gap: var(--space-3);
+}`}</pre>
+      </div>
+    </div>
+  </div>
+
+</div>

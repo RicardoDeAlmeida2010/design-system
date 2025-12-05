@@ -1,15 +1,20 @@
+/**
+ * Skeleton Component
+ * Using Design System tokens from DS_banco00.md
+ */
+
 .design-system-skeleton {
     display: block;
-    background-color: var(--sys-color-bg-surface-variant);
-    border-radius: var(--sys-radius-md);
+    background-color: var(--bg-tertiary);
+    border-radius: var(--radius-md);
     width: 100%;
     height: 100%;
 
     /* Shimmer Effect */
     background: linear-gradient(90deg,
-            var(--sys-color-bg-surface-variant) 25%,
-            var(--sys-color-bg-surface) 50%,
-            var(--sys-color-bg-surface-variant) 75%);
+            var(--bg-tertiary) 25%,
+            var(--bg-secondary) 50%,
+            var(--bg-tertiary) 75%);
     background-size: 200% 100%;
     animation: shimmer 1.5s infinite linear;
 }
@@ -17,15 +22,15 @@
 .design-system-skeleton--text {
     height: 1em;
     margin-bottom: 0.5em;
-    border-radius: var(--sys-radius-sm);
+    border-radius: var(--radius-sm);
 }
 
 .design-system-skeleton--circular {
-    border-radius: 50%;
+    border-radius: var(--radius-full);
 }
 
 .design-system-skeleton--rectangular {
-    border-radius: var(--sys-radius-md);
+    border-radius: var(--radius-md);
 }
 
 @keyframes shimmer {

@@ -1,128 +1,152 @@
-import tokens from '../tokens.json';
+/**
+ * Token utility functions
+ * Returns CSS variable references for design tokens
+ * Based on DS_banco00.md specifications
+ */
 
-// Tipos para os tokens
-export interface DesignTokens {
-  colors: {
-    primary: Record<string, string>;
-    secondary: Record<string, string>;
-    success: Record<string, string>;
-    warning: Record<string, string>;
-    error: Record<string, string>;
-    neutral: Record<string, string>;
-    background: Record<string, string>;
-    text: Record<string, string>;
-    border: Record<string, string>;
-  };
-  typography: {
-    fontFamily: Record<string, string[]>;
-    fontSize: Record<string, string>;
-    fontWeight: Record<string, string>;
-    lineHeight: Record<string, string>;
-  };
-  spacing: Record<string, string>;
-  borderRadius: Record<string, string>;
-  borderWidth: Record<string, string>;
-  shadows: Record<string, string>;
-  zIndex: Record<string, string>;
-  breakpoints: Record<string, string>;
-  transitions: {
-    duration: Record<string, string>;
-    easing: Record<string, string>;
-  };
-}
-
-// Função para acessar tokens de forma segura
-export const getToken = (path: string): string => {
-  const keys = path.split('.');
-  let value: any = tokens;
-  
-  for (const key of keys) {
-    if (value && typeof value === 'object' && key in value) {
-      value = value[key];
-    } else {
-      console.warn(`Token not found: ${path}`);
-      return '';
-    }
-  }
-  
-  return String(value);
-};
-
-// Funções utilitárias para tokens específicos
+// Color utilities
 export const getColor = (color: string, shade?: string): string => {
   if (shade) {
-    return getToken(`colors.${color}.${shade}`);
+    // For specific shades like getColor('brand', '500')
+    return `var(--${color}-${shade})`;
   }
-  // Se não há shade, retorna a cor padrão (500) ou a primeira disponível
-  const colorObj = tokens.colors[color as keyof typeof tokens.colors];
-  if (colorObj && typeof colorObj === 'object') {
-    const colorValues = colorObj as Record<string, string>;
-    return colorValues['500'] || Object.values(colorValues)[0] || '';
+
+  // Map old color names to new semantic tokens
+  const colorMap: Record<string, string> = {
+    'primary': 'var(--brand-500)',
+    'secondary': 'var(--gray-500)',
+    'success': 'var(--green-500)',
+    'warning': 'var(--yellow-700)',
+    'error': 'var(--red-500)',
+    'neutral': 'var(--gray-500)',
+  };
+
+  // For semantic tokens like getColor('background', 'primary')
+  const semanticMap: Record<string, Record<string, string>> = {
+    'background': {
+      'primary': 'var(--bg-primary)',
+      'secondary': 'var(--bg-secondary)',
+      'tertiary': 'var(--bg-tertiary)',
+    },
+    'text': {
+      'primary': 'var(--text-primary)',
+      'secondary': 'var(--text-secondary)',
+      'tertiary': 'var(--text-tertiary)',
+      'disabled': 'var(--text-disabled)',
+    },
+    'border': {
+      'primary': 'var(--border-primary)',
+      'secondary': 'var(--border-secondary)',
+      'focus': 'var(--border-focus)',
+      'error': 'var(--border-error)',
+    },
+  };
+
+  if (semanticMap[color]) {
+    return semanticMap[color][shade || 'primary'] || 'var(--gray-500)';
   }
-  return '';
+
+  return colorMap[color] || `var(--${color})`;
 };
 
+// Spacing utilities
 export const getSpacing = (size: string | number): string => {
-  return getToken(`spacing.${size}`);
+  return `var(--space-${size})`;
 };
 
+// Typography utilities
 export const getFontSize = (size: string): string => {
-  return getToken(`typography.fontSize.${size}`);
+  return `var(--font-size-${size})`;
 };
 
 export const getFontWeight = (weight: string): string => {
-  return getToken(`typography.fontWeight.${weight}`);
+  return `var(--font-weight-${weight})`;
 };
 
 export const getFontFamily = (family: string): string => {
-  const fontFamily = getToken(`typography.fontFamily.${family}`);
-  // Retorna como string CSS válida
-  return fontFamily.replace(/[\[\]"]/g, '');
+  return `var(--font-family-${family})`;
 };
 
 export const getLineHeight = (height: string): string => {
-  return getToken(`typography.lineHeight.${height}`);
+  return `var(--line-height-${height})`;
 };
 
-export const getTypography = (type: string, property: string): string => {
-  return getToken(`typography.${type}.${property}`);
-};
-
+// Border utilities
 export const getBorderRadius = (size: string): string => {
-  return getToken(`borderRadius.${size}`);
+  return `var(--radius-${size})`;
 };
 
 export const getBorderWidth = (width: string): string => {
-  return getToken(`borderWidth.${width}`);
+  return `${width}px`;
 };
 
+// Shadow utilities
 export const getShadow = (size: string): string => {
-  return getToken(`shadows.${size}`);
+  return `var(--elevation-${size})`;
 };
 
+// Z-index utilities
 export const getZIndex = (index: string): string => {
-  return getToken(`zIndex.${index}`);
+  return `var(--z-${index})`;
 };
 
-export const getBreakpoint = (breakpoint: string): string => {
-  return getToken(`breakpoints.${breakpoint}`);
-};
-
+// Transition utilities
 export const getTransition = (type: 'duration' | 'easing', value: string): string => {
-  return getToken(`transitions.${type}.${value}`);
+  if (type === 'duration') {
+    return `var(--duration-${value})`;
+  }
+  return `var(--ease-${value})`;
 };
 
-// Funções de conveniência para cores específicas
-export const getPrimaryColor = (shade?: string): string => getColor('primary', shade);
-export const getSecondaryColor = (shade?: string): string => getColor('secondary', shade);
-export const getSuccessColor = (shade?: string): string => getColor('success', shade);
-export const getWarningColor = (shade?: string): string => getColor('warning', shade);
-export const getErrorColor = (shade?: string): string => getColor('error', shade);
+// Convenience functions for colors
+export const getPrimaryColor = (shade?: string): string => {
+  return shade ? `var(--brand-${shade})` : 'var(--brand-500)';
+};
 
-// Funções de conveniência para tamanhos de fonte
-export const getSmallFontSize = (): string => getFontSize('sm');
-export const getMediumFontSize = (): string => getFontSize('base');
-export const getLargeFontSize = (): string => getFontSize('lg');
+export const getSecondaryColor = (shade?: string): string => {
+  return shade ? `var(--gray-${shade})` : 'var(--gray-500)';
+};
 
-// Exportar tokens como default
-export default tokens as DesignTokens; 
+export const getSuccessColor = (shade?: string): string => {
+  return shade ? `var(--green-${shade})` : 'var(--green-500)';
+};
+
+export const getWarningColor = (shade?: string): string => {
+  return shade ? `var(--yellow-${shade})` : 'var(--yellow-700)';
+};
+
+export const getErrorColor = (shade?: string): string => {
+  return shade ? `var(--red-${shade})` : 'var(--red-500)';
+};
+
+// Convenience functions for font sizes
+export const getSmallFontSize = (): string => 'var(--font-size-sm)';
+export const getMediumFontSize = (): string => 'var(--font-size-base)';
+export const getLargeFontSize = (): string => 'var(--font-size-lg)';
+
+// Breakpoint utilities (for reference, not CSS variables)
+export const getBreakpoint = (breakpoint: string): string => {
+  const breakpoints: Record<string, string> = {
+    'xs': '375px',
+    'sm': '428px',
+    'md': '768px',
+    'lg': '1024px',
+    'xl': '1440px',
+    '2xl': '1920px',
+  };
+  return breakpoints[breakpoint] || '768px';
+};
+
+// Typography helper (legacy support)
+export const getTypography = (type: string, property: string): string => {
+  if (property === 'fontSize') return getFontSize(type);
+  if (property === 'fontWeight') return getFontWeight(type);
+  if (property === 'lineHeight') return getLineHeight(type);
+  return '';
+};
+
+// Legacy token getter (for backwards compatibility)
+export const getToken = (path: string): string => {
+  console.warn(`getToken('${path}') is deprecated. Use specific utility functions instead.`);
+  return '';
+};

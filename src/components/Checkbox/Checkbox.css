@@ -1,0 +1,179 @@
+/* Checkbox Styles */
+.checkbox {
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
+    width: fit-content;
+    padding: var(--space-1);
+    border-radius: var(--radius-sm);
+    transition: background-color var(--duration-fast) var(--ease-standard);
+    cursor: pointer;
+    position: relative;
+}
+
+.checkbox--full-width {
+    width: 100%;
+}
+
+.checkbox--disabled {
+    opacity: 0.6;
+    cursor: not-allowed;
+}
+
+/* Input Container */
+.checkbox__input-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+}
+
+/* Native Input */
+.checkbox__input {
+    appearance: none;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    width: 100%;
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    border-radius: var(--radius-sm);
+    border: 2px solid var(--border-primary);
+    background-color: var(--bg-primary);
+    cursor: pointer;
+    outline: none;
+    transition: all var(--duration-fast) var(--ease-standard);
+}
+
+.checkbox--disabled .checkbox__input {
+    cursor: not-allowed;
+    background-color: var(--bg-secondary);
+    border-color: var(--border-secondary);
+}
+
+/* Sizes */
+.checkbox--small .checkbox__input-wrapper {
+    width: 16px;
+    height: 16px;
+}
+
+.checkbox--medium .checkbox__input-wrapper {
+    width: 20px;
+    height: 20px;
+}
+
+.checkbox--large .checkbox__input-wrapper {
+    width: 24px;
+    height: 24px;
+}
+
+/* Checked / Indeterminate State */
+.checkbox__input:checked,
+.checkbox__input:indeterminate {
+    background-color: var(--interactive-primary);
+    border-color: var(--interactive-primary);
+}
+
+.checkbox--disabled .checkbox__input:checked,
+.checkbox--disabled .checkbox__input:indeterminate {
+    background-color: var(--interactive-primary-disabled);
+    border-color: var(--interactive-primary-disabled);
+}
+
+/* Error State */
+.checkbox--error .checkbox__input:not(:checked):not(:indeterminate) {
+    border-color: var(--status-error);
+}
+
+.checkbox--error .checkbox__input:focus {
+    border-color: var(--status-error);
+}
+
+/* Focus State */
+.checkbox__input:focus-visible {
+    outline: 2px solid var(--border-focus);
+    outline-offset: 2px;
+}
+
+/* Hover State */
+.checkbox:not(.checkbox--disabled):hover .checkbox__input:not(:checked):not(:indeterminate):not(:focus) {
+    border-color: var(--interactive-primary-hover);
+}
+
+/* Icons (Checkmark & Indeterminate) */
+.checkbox__icon {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    pointer-events: none;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--text-inverse);
+    opacity: 0;
+    transition: opacity var(--duration-fast) var(--ease-standard);
+}
+
+.checkbox__input:checked~.checkbox__icon,
+.checkbox__input:indeterminate~.checkbox__icon {
+    opacity: 1;
+}
+
+/* Icon Sizes */
+.checkbox--small .checkbox__icon {
+    width: 10px;
+    height: 10px;
+}
+
+.checkbox--medium .checkbox__icon {
+    width: 12px;
+    height: 12px;
+}
+
+.checkbox--large .checkbox__icon {
+    width: 16px;
+    height: 16px;
+}
+
+/* Svg styling inside icon wrapper */
+.checkbox__icon svg {
+    width: 100%;
+    height: 100%;
+    stroke: currentColor;
+    stroke-width: 3;
+    /* Thicker stroke for better visibility at small sizes */
+}
+
+/* Indeterminate Line */
+.checkbox__indeterminate-line {
+    width: 60%;
+    height: 2px;
+    background-color: currentColor;
+    border-radius: 1px;
+}
+
+/* Label Container */
+.checkbox__label {
+    color: var(--text-primary);
+    font-weight: var(--font-weight-medium);
+    line-height: var(--line-height-tight);
+    user-select: none;
+}
+
+.checkbox--disabled .checkbox__label {
+    color: var(--text-disabled);
+}
+
+.checkbox--small .checkbox__label {
+    font-size: var(--font-size-sm);
+}
+
+.checkbox--medium .checkbox__label {
+    font-size: var(--font-size-base);
+}
+
+.checkbox--large .checkbox__label {
+    font-size: var(--font-size-lg);
+}

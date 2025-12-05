@@ -1,3 +1,4 @@
+// @vitest-environment jsdom
 import { render, screen, fireEvent } from '@testing-library/react';
 import { describe, it, expect, vi } from 'vitest';
 import RadioButton from './RadioButton';
@@ -17,10 +18,10 @@ describe('RadioButton', () => {
   it('handles change event', () => {
     const handleChange = vi.fn();
     render(<RadioButton onChange={handleChange} label="Test radio" />);
-    
+
     const radio = screen.getByRole('radio');
     fireEvent.click(radio);
-    
+
     expect(handleChange).toHaveBeenCalled();
   });
 
@@ -45,7 +46,7 @@ describe('RadioButton', () => {
   it('applies fullWidth prop', () => {
     render(<RadioButton fullWidth label="Test radio" />);
     const label = screen.getByText('Test radio');
-    expect(label.closest('label')).toHaveStyle('width: 100%');
+    expect(label.closest('label')).toHaveClass('radio-button--full-width');
   });
 
   it('forwards ref correctly', () => {
@@ -57,10 +58,10 @@ describe('RadioButton', () => {
   it('handles label click', () => {
     const handleChange = vi.fn();
     render(<RadioButton onChange={handleChange} label="Test radio" />);
-    
+
     const label = screen.getByText('Test radio');
     fireEvent.click(label);
-    
+
     expect(handleChange).toHaveBeenCalled();
   });
 
@@ -72,10 +73,10 @@ describe('RadioButton', () => {
         <RadioButton name="group" value="2" onChange={handleChange} label="Option 2" />
       </div>
     );
-    
+
     const radios = screen.getAllByRole('radio');
     expect(radios).toHaveLength(2);
-    
+
     fireEvent.click(radios[0]);
     expect(handleChange).toHaveBeenCalled();
   });
